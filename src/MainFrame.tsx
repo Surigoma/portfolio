@@ -76,15 +76,17 @@ export default function MainFrame() {
               onClick={() => {
                 i18n.changeLanguage("ja");
               }}
+              selected={i18n.language == "ja"}
             >
-              Japanese
+              {t("translation.jpn")}
             </MenuItem>
             <MenuItem
               onClick={() => {
                 i18n.changeLanguage("en");
               }}
+              selected={i18n.language == "en"}
             >
-              English
+              {t("translation.eng")}
             </MenuItem>
           </Menu>
           <IconButton
