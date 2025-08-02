@@ -1,0 +1,124 @@
+import "./App.scss";
+import {
+  Box,
+  Container,
+  IconButton,
+  Menu,
+  MenuItem,
+  Tab,
+  Tabs,
+  Toolbar,
+  Typography,
+  useColorScheme,
+} from "@mui/material";
+import ContrastIcon from "@mui/icons-material/Contrast";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
+import LightModeIcon from "@mui/icons-material/LightMode";
+import LanguageIcon from "@mui/icons-material/Language";
+import { useTranslation } from "react-i18next";
+import { useState } from "react";
+import i18n from "./i18n/config";
+import { Outlet, useLocation, useNavigate } from "react-router";
+import { routeBase } from "./routes";
+
+export default function MainFrame() {
+  const { mode, setMode } = useColorScheme();
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const open = Boolean(anchorEl);
+  const { t } = useTranslation();
+  const locale = useLocation();
+  let navigate = useNavigate();
+  function langClick(e: React.MouseEvent<HTMLButtonElement>) {
+    setAnchorEl(e.currentTarget);
+  }
+  function langClose() {
+    setAnchorEl(null);
+  }
+  function changeTheme() {
+    const themes = ["system", "dark", "light"];
+    let priv = themes.indexOf(mode ?? "system");
+    let next = (priv + 1) % themes.length;
+    setMode(themes[next] as "system" | "light" | "dark");
+  }
+  return (
+    <Container>
+      <Container>
+        <Toolbar>
+          <Typography
+            variant="h6"
+            component="div"
+            sx={{ flexGrow: 1 }}
+            style={{ userSelect: "none" }}
+          >
+            {t("header.title")}
+          </Typography>
+          <IconButton
+            id="lang"
+            aria-controls={open ? "lang-list" : undefined}
+            aria-haspopup="true"
+            aria-expanded={open ? "true" : undefined}
+            onClick={langClick}
+          >
+            <LanguageIcon />
+          </IconButton>
+          <Menu
+            id="lang-list"
+            anchorEl={anchorEl}
+            open={open}
+            onClose={langClose}
+            slotProps={{
+              list: {
+                "aria-labelledby": "lang",
+              },
+            }}
+          >
+            <MenuItem
+              onClick={() => {
+                i18n.changeLanguage("ja");
+              }}
+            >
+              Japanese
+            </MenuItem>
+            <MenuItem
+              onClick={() => {
+                i18n.changeLanguage("en");
+              }}
+            >
+              English
+            </MenuItem>
+          </Menu>
+          <IconButton
+            onClick={() => {
+              changeTheme();
+            }}
+          >
+            {(mode == "system" || mode == null) && <ContrastIcon />}
+            {mode == "dark" && <DarkModeIcon />}
+            {mode == "light" && <LightModeIcon />}
+          </IconButton>
+        </Toolbar>
+      </Container>
+      <Container>
+        <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+          <Tabs aria-label="basic tabs example" value={locale.pathname}>
+            {routeBase[0].children?.map((e) => {
+              return (
+                <Tab
+                  label={t(e.title)}
+                  value={e.path}
+                  onClick={() => {
+                    e.path && navigate(e.path);
+                  }}
+                  key={e.path}
+                />
+              );
+            })}
+          </Tabs>
+        </Box>
+      </Container>
+      <Container className="contents">
+        <Outlet />
+      </Container>
+    </Container>
+  );
+}

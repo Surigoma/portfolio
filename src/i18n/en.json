@@ -1,0 +1,23 @@
+{
+    "header": {
+        "title": "Surigoma.net"
+    },
+    "pages": {
+        "profile": "Profile",
+        "works": "Works"
+    },
+    "profile": {
+        "title": "Profile",
+        "name": {
+            "title": "Name",
+            "value": "Surigoma"
+        },
+        "sns": {
+            "linkedin": "Follow on Linkedin"
+        }
+    },
+    "works": {
+        "title": "Works",
+        "message": "This page is WIP. Please wait while..."
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "header": {
+        "title": "Surigoma.net"
+    },
+    "pages": {
+        "profile": "プロフィール",
+        "works": "制作物"
+    },
+    "profile": {
+        "title": "プロフィール",
+        "name": {
+            "title": "名前",
+            "value": "すりごま"
+        },
+        "sns": {
+            "linkedin": "LinkedInでフォロー"
+        }
+    },
+    "works": {
+        "title": "制作物",
+        "message": "このページは現在作成中です。しばらくお待ちください..."
+    }
+}
