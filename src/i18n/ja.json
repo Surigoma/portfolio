@@ -19,6 +19,9 @@
             "x": "@{{name, string}}をフォロー",
             "github": "GitHub",
             "linkedin": "LinkedInでフォロー"
+        },
+        "skils": {
+            "title": "スキル"
         }
     },
     "works": {

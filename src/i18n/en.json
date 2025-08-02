@@ -19,6 +19,9 @@
             "x": "Follow @{{name, string}}",
             "github": "GitHub",
             "linkedin": "Follow on Linkedin"
+        },
+        "skils": {
+            "title": "Skils"
         }
     },
     "works": {
