@@ -13,6 +13,8 @@
             "value": "Surigoma"
         },
         "sns": {
+            "x": "Follow @{{name, string}}",
+            "github": "GitHub",
             "linkedin": "Follow on Linkedin"
         }
     },

@@ -13,6 +13,8 @@
             "value": "すりごま"
         },
         "sns": {
+            "x": "@{{name, string}}をフォロー",
+            "github": "GitHub",
             "linkedin": "LinkedInでフォロー"
         }
     },
