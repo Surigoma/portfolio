@@ -6,6 +6,9 @@
         "profile": "Profile",
         "works": "Works"
     },
+    "messages": {
+        "creating_now": "This contents is WIP. Please wait while..."
+    },
     "profile": {
         "title": "Profile",
         "name": {
@@ -19,7 +22,6 @@
         }
     },
     "works": {
-        "title": "Works",
-        "message": "This page is WIP. Please wait while..."
+        "title": "Works"
     }
 }

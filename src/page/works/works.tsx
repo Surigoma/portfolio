@@ -6,7 +6,7 @@ export default function Works() {
   return (
     <>
       <h1>{t("works.title")}</h1>
-      <Alert severity="info">{t("works.message")}</Alert>
+      <Alert severity="info">{t("messages.creating_now")}</Alert>
     </>
   );
 }
