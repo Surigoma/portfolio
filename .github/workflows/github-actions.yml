@@ -1,0 +1,27 @@
+name: Build and release site data.
+run-name: Build and release site data.
+on:
+  push:
+    branches:
+      - main
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+      - name: Install dependencies
+        run: pnpm i --frozen-lockfile
+      - name: Build
+        run: pnpm build
+      - name: Archive Production Build
+        run: tar -czf release.tar.gz --directory=./dist ./
+      - name: Create Release
+        run: |
+          gh release create ${{github.ref_name}} --generate-notes release.tar.gz
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
