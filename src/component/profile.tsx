@@ -7,7 +7,7 @@ export default function ProfileComponent() {
   return (
     <Card variant="outlined">
       <CardHeader
-        title={t("profile.title")}
+        title={t("components.profile.title")}
         avatar={
           <BoringAvatar
             name="surigoma"
@@ -19,10 +19,10 @@ export default function ProfileComponent() {
       ></CardHeader>
       <CardContent>
         <Typography gutterBottom sx={{ color: "text.secondary", fontSize: 14 }}>
-          {t("profile.name.title")}
+          {t("components.profile.name.title")}
         </Typography>
         <Typography variant="h5" component="div">
-          {t("profile.name.value")}
+          {t("components.profile.name.value")}
         </Typography>
       </CardContent>
     </Card>

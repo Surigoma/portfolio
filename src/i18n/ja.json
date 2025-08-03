@@ -1,4 +1,19 @@
 {
+    "basic": {
+        "date": {
+            "years_one": "年",
+            "years_other": "年",
+            "months_one": "月",
+            "months_other": "月"
+        },
+        "dialog": {
+            "ok": "OK",
+            "close": "閉じる",
+            "example_one": "例",
+            "example_other": "例",
+            "maybe": "たぶん"
+        }
+    },
     "header": {
         "title": "Surigoma.net",
         "github": "このページのソースコード"
@@ -12,24 +27,48 @@
         "works": "制作物"
     },
     "messages": {
-        "creating_now": "この内容は現在作成中です。しばらくお待ちください..."
+        "creating_now": "この内容は現在作成中です。しばらくお待ちください...",
+        "adding_now": "この内容は現在追加中です。しばらくお待ちください..."
     },
-    "profile": {
-        "title": "プロフィール",
-        "name": {
-            "title": "名前",
-            "value": "すりごま"
+    "components": {
+        "profile": {
+            "title": "プロフィール",
+            "name": {
+                "title": "名前",
+                "value": "すりごま"
+            }
         },
         "sns": {
             "x": "@{{name, string}}をフォロー",
             "github": "GitHub",
             "linkedin": "LinkedInでフォロー"
         },
-        "skils": {
-            "title": "スキル"
+        "skills": {
+            "title": "スキル",
+            "level": "レベル",
+            "levels": {
+                "all": "すべて",
+                "studies_only": "勉強のみ",
+                "hobby": "趣味",
+                "hobby_with_work": "趣味も仕事も",
+                "works_only": "仕事のみ"
+            },
+            "tag": "タグ",
+            "tags": {
+                "all": "すべて",
+                "frontend": "フロントエンド",
+                "backend": "バックエンド",
+                "server": "サーバー",
+                "library": "ライブラリ",
+                "cli_software": "CLI"
+            },
+            "messages": {
+                "React": "仕事で触り始めて、結果このページを作る際に採用するほど気に入ってはいる。<br>単方向参照はいいよね。ごちゃごちゃしない。",
+                "Vue": "",
+                "Python": ""
+            }
         }
     },
-    "works": {
-        "title": "制作物"
-    }
+    "profile": {},
+    "works": {}
 }

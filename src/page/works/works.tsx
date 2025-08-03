@@ -5,7 +5,7 @@ export default function Works() {
   const { t } = useTranslation();
   return (
     <>
-      <h1>{t("works.title")}</h1>
+      <h1>{t("pages.works")}</h1>
       <Alert severity="info">{t("messages.creating_now")}</Alert>
     </>
   );

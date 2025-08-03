@@ -1,4 +1,19 @@
 {
+    "basic": {
+        "date": {
+            "years_one": "Year",
+            "years_other": "Years",
+            "months_one": "Month",
+            "months_other": "Months"
+        },
+        "dialog": {
+            "ok": "OK",
+            "close": "Close",
+            "example_one": "Example",
+            "example_other": "Examples",
+            "maybe": "Maybe"
+        }
+    },
     "header": {
         "title": "Surigoma.net",
         "github": "Source code of this page."
@@ -12,24 +27,48 @@
         "works": "Works"
     },
     "messages": {
-        "creating_now": "This contents is WIP. Please wait while..."
+        "creating_now": "This contents is WIP. Please wait while...",
+        "adding_now": "Curretry adding now. Please wait while..."
     },
-    "profile": {
-        "title": "Profile",
-        "name": {
-            "title": "Name",
-            "value": "Surigoma"
+    "components": {
+        "profile": {
+            "title": "Profile",
+            "name": {
+                "title": "Name",
+                "value": "Surigoma"
+            }
         },
         "sns": {
             "x": "Follow @{{name, string}}",
             "github": "GitHub",
             "linkedin": "Follow on Linkedin"
         },
-        "skils": {
-            "title": "Skils"
+        "skills": {
+            "title": "Skills",
+            "level": "Skill Level",
+            "levels": {
+                "all": "ALL",
+                "studies_only": "Studies Only",
+                "hobby": "Hobby",
+                "hobby_with_work": "Hobby with Work",
+                "works_only": "Works Only"
+            },
+            "tag": "Tags",
+            "tags": {
+                "all": "ALL",
+                "frontend": "FrontEnd",
+                "backend": "BackEnd",
+                "server": "Server",
+                "library": "Library",
+                "cli_software": "CLI"
+            },
+            "messages": {
+                "React": "",
+                "Vue": "",
+                "Python": ""
+            }
         }
     },
-    "works": {
-        "title": "Works"
-    }
+    "profile": {},
+    "works": {}
 }
