@@ -12,16 +12,18 @@ import {
   Typography,
   useColorScheme,
 } from "@mui/material";
-import ContrastIcon from "@mui/icons-material/Contrast";
-import DarkModeIcon from "@mui/icons-material/DarkMode";
-import LightModeIcon from "@mui/icons-material/LightMode";
-import LanguageIcon from "@mui/icons-material/Language";
 import { useTranslation } from "react-i18next";
 import { useState } from "react";
 import i18n from "./i18n/config";
 import { Outlet, useLocation, useNavigate } from "react-router";
 import { routeBase } from "./routes";
-import { GitHub } from "@mui/icons-material";
+import {
+  MdContrast,
+  MdDarkMode,
+  MdLightMode,
+  MdLanguage,
+} from "react-icons/md";
+import { FaGithub } from "react-icons/fa";
 
 export default function MainFrame() {
   const { mode, setMode } = useColorScheme();
@@ -60,7 +62,7 @@ export default function MainFrame() {
               target="_blank"
               href="https://github.com/Surigoma/portfolio"
             >
-              <GitHub />
+              <FaGithub />
             </IconButton>
           </Tooltip>
           <IconButton
@@ -70,7 +72,7 @@ export default function MainFrame() {
             aria-expanded={open ? "true" : undefined}
             onClick={langClick}
           >
-            <LanguageIcon />
+            <MdLanguage />
           </IconButton>
           <Menu
             id="lang-list"
@@ -105,9 +107,9 @@ export default function MainFrame() {
               changeTheme();
             }}
           >
-            {(mode == "system" || mode == null) && <ContrastIcon />}
-            {mode == "dark" && <DarkModeIcon />}
-            {mode == "light" && <LightModeIcon />}
+            {(mode == "system" || mode == null) && <MdContrast />}
+            {mode == "dark" && <MdDarkMode />}
+            {mode == "light" && <MdLightMode />}
           </IconButton>
         </Toolbar>
       </Container>

@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 import type { ReactNode } from "react";
 import { useTranslation } from "react-i18next";
-
+import { FaXTwitter, FaGithub, FaLinkedin } from "react-icons/fa6";
 interface SNSInfo {
   href: string;
   image: ReactNode;
@@ -28,42 +28,18 @@ export default function SNSComponent() {
   const SNS: SNSInfo[] = [
     {
       href: "https://x.com/surigomaxxxxxxx",
-      image: (
-        <img
-          src="./img/sns/x.svg"
-          alt=""
-          style={{
-            filter: isDark
-              ? ""
-              : "invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%)",
-          }}
-        ></img>
-      ),
-      text: t("profile.sns.x", { name: "surigomaxxxxxxx" }),
+      image: <FaXTwitter />,
+      text: t("components.sns.x", { name: "surigomaxxxxxxx" }),
     },
     {
       href: "https://github.com/Surigoma",
-      image: (
-        <img
-          src={
-            isDark
-              ? "./img/sns/github-mark-white.svg"
-              : "./img/sns/github-mark.svg"
-          }
-        ></img>
-      ),
-      text: t("profile.sns.github"),
+      image: <FaGithub />,
+      text: t("components.sns.github"),
     },
     {
       href: "https://www.linkedin.com/comm/mynetwork/discovery-see-all?usecase=PEOPLE_FOLLOWS&followMember=拓矢-根岸-74234a333",
-      image: (
-        <img
-          src={
-            isDark ? "./img/sns/InBug-White.png" : "./img/sns/InBug-Black.png"
-          }
-        ></img>
-      ),
-      text: t("profile.sns.linkedin"),
+      image: <FaLinkedin />,
+      text: t("components.sns.linkedin"),
     },
   ];
 
@@ -74,7 +50,9 @@ export default function SNSComponent() {
         {SNS.map((s, i) => (
           <ListItemButton className="sns" href={s.href} target="_blank" key={i}>
             <ListItemAvatar>
-              <Avatar>{s.image}</Avatar>
+              <Avatar sx={{ color: isDark ? "white" : "black" }}>
+                {s.image}
+              </Avatar>
             </ListItemAvatar>
             <ListItemText>{s.text}</ListItemText>
           </ListItemButton>
