@@ -8,6 +8,7 @@ import {
   Tab,
   Tabs,
   Toolbar,
+  Tooltip,
   Typography,
   useColorScheme,
 } from "@mui/material";
@@ -20,6 +21,7 @@ import { useState } from "react";
 import i18n from "./i18n/config";
 import { Outlet, useLocation, useNavigate } from "react-router";
 import { routeBase } from "./routes";
+import { GitHub } from "@mui/icons-material";
 
 export default function MainFrame() {
   const { mode, setMode } = useColorScheme();
@@ -52,6 +54,15 @@ export default function MainFrame() {
           >
             {t("header.title")}
           </Typography>
+          <Tooltip title={t("header.github")}>
+            <IconButton
+              id="github"
+              target="_blank"
+              href="https://github.com/Surigoma/portfolio"
+            >
+              <GitHub />
+            </IconButton>
+          </Tooltip>
           <IconButton
             id="lang"
             aria-controls={open ? "lang-list" : undefined}
