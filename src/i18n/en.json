@@ -39,7 +39,7 @@
             }
         },
         "sns": {
-            "x": "Follow @{{name, string}}",
+            "x": "Follow @{{name}}",
             "github": "GitHub",
             "linkedin": "Follow on Linkedin"
         },

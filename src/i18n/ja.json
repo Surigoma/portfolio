@@ -39,7 +39,7 @@
             }
         },
         "sns": {
-            "x": "@{{name, string}} を フォロー",
+            "x": "@{{name}} を フォロー",
             "github": "GitHub",
             "linkedin": "LinkedIn で フォロー"
         },
