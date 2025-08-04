@@ -6,7 +6,7 @@ import SkilComponent from "../../component/skil";
 
 export default function Profile() {
   return (
-    <Box sx={{ minWidth: 500, margin: "10px" }}>
+    <Box sx={{ margin: "10px" }}>
       <Grid container spacing={2}>
         <Grid size={{ xs: 12, md: 8 }}>
           <Stack spacing={2}>
