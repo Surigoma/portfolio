@@ -1,17 +1,14 @@
 import "./App.scss";
-import {
-  Box,
-  Container,
-  IconButton,
-  Menu,
-  MenuItem,
-  Tab,
-  Tabs,
-  Toolbar,
-  Tooltip,
-  Typography,
-  useColorScheme,
-} from "@mui/material";
+import Container from "@mui/material/Container";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import Tooltip from "@mui/material/Tooltip";
+import IconButton from "@mui/material/IconButton";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import Box from "@mui/material/Box";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
 import { useTranslation } from "react-i18next";
 import { useState } from "react";
 import { Outlet, useLocation, useNavigate } from "react-router";
@@ -24,6 +21,7 @@ import {
 } from "react-icons/md";
 import { FaGithub } from "react-icons/fa";
 import { useLocale } from "./i18n/config";
+import { useColorScheme } from "@mui/material/styles";
 
 export default function MainFrame() {
   const { mode, setMode } = useColorScheme();

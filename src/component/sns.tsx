@@ -1,14 +1,12 @@
-import {
-  useMediaQuery,
-  useColorScheme,
-  Card,
-  CardHeader,
-  CardContent,
-  ListItemButton,
-  ListItemAvatar,
-  ListItemText,
-  Avatar,
-} from "@mui/material";
+import Card from "@mui/material/Card";
+import CardHeader from "@mui/material/CardHeader";
+import CardContent from "@mui/material/CardContent";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemAvatar from "@mui/material/ListItemAvatar";
+import Avatar from "@mui/material/Avatar";
+import ListItemText from "@mui/material/ListItemText";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useColorScheme } from "@mui/material/styles";
 import type { ReactNode } from "react";
 import { useTranslation } from "react-i18next";
 import { FaXTwitter, FaGithub, FaLinkedin } from "react-icons/fa6";

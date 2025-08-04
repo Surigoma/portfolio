@@ -1,29 +1,27 @@
-import {
-  Alert,
-  Box,
-  Card,
-  CardContent,
-  CardHeader,
-  Checkbox,
-  Chip,
-  Drawer,
-  FormControl,
-  IconButton,
-  InputLabel,
-  List,
-  ListItemText,
-  MenuItem,
-  OutlinedInput,
-  Select,
-  Stack,
-  useMediaQuery,
-} from "@mui/material";
+import FormControl from "@mui/material/FormControl";
+import InputLabel from "@mui/material/InputLabel";
+import Select from "@mui/material/Select";
+import OutlinedInput from "@mui/material/OutlinedInput";
+import Box from "@mui/material/Box";
+import Chip from "@mui/material/Chip";
+import MenuItem from "@mui/material/MenuItem";
+import Checkbox from "@mui/material/Checkbox";
+import ListItemText from "@mui/material/ListItemText";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import Card from "@mui/material/Card";
+import CardHeader from "@mui/material/CardHeader";
+import IconButton from "@mui/material/IconButton";
+import CardContent from "@mui/material/CardContent";
+import Alert from "@mui/material/Alert";
+import List from "@mui/material/List";
+import Drawer from "@mui/material/Drawer";
+import Stack from "@mui/material/Stack";
 import { FaReact, FaVuejs } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 import { useState, type Dispatch, type SetStateAction } from "react";
-import SkillCardComponent, { type SkillBase } from "./skill_card";
 import { FaPython } from "react-icons/fa6";
 import { MdMenu } from "react-icons/md";
+import SkillCardComponent, { type SkillBase } from "./skill_card";
 
 const skilmap: SkillBase[] = [
   {

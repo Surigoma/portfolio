@@ -1,20 +1,18 @@
-import {
-  Avatar,
-  ListItemAvatar,
-  ListItemText,
-  ListItemButton,
-  Dialog,
-  DialogTitle,
-  DialogContentText,
-  useMediaQuery,
-  useColorScheme,
-  DialogContent,
-  IconButton,
-  Typography,
-  Divider,
-  Link,
-  Grid,
-} from "@mui/material";
+import Avatar from "@mui/material/Avatar";
+import Dialog from "@mui/material/Dialog";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
+import Divider from "@mui/material/Divider";
+import Grid from "@mui/material/Grid";
+import IconButton from "@mui/material/IconButton";
+import Link from "@mui/material/Link";
+import ListItemAvatar from "@mui/material/ListItemAvatar";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemText from "@mui/material/ListItemText";
+import Typography from "@mui/material/Typography";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useColorScheme } from "@mui/material/styles";
 import { useState } from "react";
 import { Trans, useTranslation } from "react-i18next";
 import { MdClose, MdLink } from "react-icons/md";

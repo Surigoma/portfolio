@@ -1,4 +1,6 @@
-import { Box, Grid, Stack } from "@mui/material";
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
+import Stack from "@mui/material/Stack";
 import "./profile.scss";
 import SNSComponent from "../../component/sns";
 import ProfileComponent from "../../component/profile";
