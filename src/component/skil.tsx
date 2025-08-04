@@ -20,12 +20,7 @@ import {
 } from "@mui/material";
 import { FaReact, FaVuejs } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
-import {
-  useState,
-  type CSSProperties,
-  type Dispatch,
-  type SetStateAction,
-} from "react";
+import { useState, type Dispatch, type SetStateAction } from "react";
 import SkillCardComponent, { type SkillBase } from "./skill_card";
 import { FaPython } from "react-icons/fa6";
 import { MdMenu } from "react-icons/md";
