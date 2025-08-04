@@ -14,7 +14,6 @@ import {
 } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { useState } from "react";
-import i18n from "./i18n/config";
 import { Outlet, useLocation, useNavigate } from "react-router";
 import { routeBase } from "./routes";
 import {
@@ -24,13 +23,15 @@ import {
   MdLanguage,
 } from "react-icons/md";
 import { FaGithub } from "react-icons/fa";
+import { useLocale } from "./i18n/config";
 
 export default function MainFrame() {
   const { mode, setMode } = useColorScheme();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
+  const locale = useLocale();
   const { t } = useTranslation();
-  const locale = useLocation();
+  const location = useLocation();
   let navigate = useNavigate();
   function langClick(e: React.MouseEvent<HTMLButtonElement>) {
     setAnchorEl(e.currentTarget);
@@ -87,17 +88,17 @@ export default function MainFrame() {
           >
             <MenuItem
               onClick={() => {
-                i18n.changeLanguage("ja");
+                locale.setLocale("ja");
               }}
-              selected={i18n.language == "ja"}
+              selected={locale.locale == "ja"}
             >
               {t("translation.jpn")}
             </MenuItem>
             <MenuItem
               onClick={() => {
-                i18n.changeLanguage("en");
+                locale.setLocale("en");
               }}
-              selected={i18n.language == "en"}
+              selected={locale.locale == "en"}
             >
               {t("translation.eng")}
             </MenuItem>
@@ -115,7 +116,7 @@ export default function MainFrame() {
       </Container>
       <Container>
         <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-          <Tabs aria-label="basic tabs example" value={locale.pathname}>
+          <Tabs aria-label="basic tabs example" value={location.pathname}>
             {routeBase[0].children?.map((e) => {
               return (
                 <Tab

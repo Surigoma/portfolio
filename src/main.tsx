@@ -4,21 +4,32 @@ import { createRoot } from "react-dom/client";
 import { RouterProvider } from "react-router";
 import { routes } from "./routes.ts";
 import "./i18n/config";
+import { useLocale, localeConv } from "./i18n/config";
 import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
 
 const root = document.getElementById("root");
 
-const darkTheme = createTheme({
-  colorSchemes: {
-    dark: true,
-  },
-});
+function Main() {
+  const locale = useLocale();
+  const darkTheme = createTheme(
+    {
+      colorSchemes: {
+        dark: true,
+      },
+    },
+    [localeConv(locale.locale)]
+  );
 
-createRoot(root!).render(
-  <StrictMode>
+  return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
       <RouterProvider router={routes}></RouterProvider>
     </ThemeProvider>
+  );
+}
+
+createRoot(root!).render(
+  <StrictMode>
+    <Main />
   </StrictMode>
 );
