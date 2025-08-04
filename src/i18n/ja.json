@@ -39,9 +39,9 @@
             }
         },
         "sns": {
-            "x": "@{{name, string}}をフォロー",
+            "x": "@{{name, string}} を フォロー",
             "github": "GitHub",
-            "linkedin": "LinkedInでフォロー"
+            "linkedin": "LinkedIn で フォロー"
         },
         "skills": {
             "title": "スキル",
