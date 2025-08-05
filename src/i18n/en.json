@@ -70,5 +70,18 @@
         }
     },
     "profile": {},
-    "works": {}
+    "works": {
+        "portfolio": {
+            "title": "Portfolio"
+        },
+        "webhook-updater": {
+            "title": "webhook-updater"
+        },
+        "work_linux_enbedded": {
+            "title": "Embedded Linux Development"
+        },
+        "hobby_linux": {
+            "title": "Building a home server"
+        }
+    }
 }

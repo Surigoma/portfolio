@@ -16,6 +16,9 @@ import { useColorScheme } from "@mui/material/styles";
 import { useState } from "react";
 import { Trans, useTranslation } from "react-i18next";
 import { MdClose, MdLink } from "react-icons/md";
+import i18n from "../i18n/config";
+import Chip from "@mui/material/Chip";
+import Stack from "@mui/material/Stack";
 
 export const SkillLevel = [
   "studies_only",
@@ -42,10 +45,12 @@ export interface SkillBase {
   level: {
     type: SkillLevelType;
     maybe?: boolean;
-    length: number;
+    length?: number;
+    beforeYear?: number;
     prefix: DatePrefixListType;
   };
-  info: {
+  meta: {
+    notUseTrans?: boolean;
     tags: TagListType[];
     example?: {
       title: string;
@@ -53,14 +58,24 @@ export interface SkillBase {
     }[];
   };
 }
-export default function SkillCardComponent({ skill }: { skill: SkillBase }) {
+
+export default function SkillListComponent({
+  skill,
+  selected,
+}: {
+  skill: SkillBase;
+  selected: string[];
+}) {
+  const [opened, setOpened] = useState<boolean>(false);
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
   const { mode } = useColorScheme();
   const isDark =
     ((mode == undefined || mode == "system") && prefersDarkMode) ||
     mode == "dark";
-  const [opened, setOpened] = useState<boolean>(false);
   const { t } = useTranslation();
+  const beforeYear = skill.level.beforeYear
+    ? new Date(Date.now()).getFullYear() - skill.level.beforeYear!
+    : skill.level.length;
   const skill_level_length =
     t("components.skills.level") +
     " : " +
@@ -68,9 +83,9 @@ export default function SkillCardComponent({ skill }: { skill: SkillBase }) {
     " - " +
     (skill.level.maybe === true ? t("basic.dialog.maybe") : "") +
     " " +
-    skill.level.length +
+    beforeYear +
     " " +
-    t("basic.date." + skill.level.prefix, { count: skill.level.length });
+    t("basic.date." + skill.level.prefix, { count: beforeYear });
   return (
     <>
       <ListItemButton
@@ -95,7 +110,23 @@ export default function SkillCardComponent({ skill }: { skill: SkillBase }) {
         aria-labelledby={"skill_" + skill.name + "_title"}
       >
         <DialogTitle id={"skill_" + skill.name + "_title"}>
-          {skill.name}
+          <Stack spacing={1}>
+            {skill.name}
+            <Grid container flexDirection="row" spacing={1}>
+              <Typography inlist={true}>
+                {t("components.skills.tag") + " :"}
+              </Typography>
+              {skill.meta.tags.map((v) => (
+                <Chip
+                  key={v}
+                  color={selected.includes(v) ? "primary" : "default"}
+                  variant="outlined"
+                  label={t("components.skills.tags." + v)}
+                  size="small"
+                />
+              ))}
+            </Grid>
+          </Stack>
         </DialogTitle>
         <IconButton
           aria-label="close"
@@ -118,7 +149,9 @@ export default function SkillCardComponent({ skill }: { skill: SkillBase }) {
             maxWidth: "100%",
           }}
         >
-          <Typography variant="subtitle2">{skill_level_length}</Typography>
+          <Typography variant="subtitle2" sx={{ pb: 1 }}>
+            {skill_level_length}
+          </Typography>
           <DialogContentText>
             <Trans
               t={t}
@@ -126,21 +159,36 @@ export default function SkillCardComponent({ skill }: { skill: SkillBase }) {
               components={{ br: <br /> }}
             ></Trans>
           </DialogContentText>
-          {skill.info.example !== undefined && (
+          {i18n.language != "ja" && !skill.meta.notUseTrans && (
+            <Grid justifyContent="flex-end" container>
+              <Typography align="right" width="100%" variant="caption">
+                Using Google Translate
+              </Typography>
+            </Grid>
+          )}
+          {skill.meta.example !== undefined && (
             <>
               <Divider sx={{ my: 1 }}>
-                {t("basic.dialog.example", {
-                  count: skill.info.example.length,
+                {t("basic.dialog.works_example", {
+                  count: skill.meta.example.length,
                 })}
               </Divider>
-              <Grid container spacing={1}>
-                {skill.info.example.map((v) => (
-                  <Link href={v.url} key={v.title}>
-                    {v.title}
-                    <MdLink />
-                  </Link>
+              <ul>
+                {skill.meta.example.map((v) => (
+                  <li key={v.title}>
+                    {(v.url !== undefined && (
+                      <Link href={v.url}>
+                        {t("works." + v.title + ".title")}
+                        <MdLink />
+                      </Link>
+                    )) || (
+                      <Typography>
+                        {t("works." + v.title + ".title")}
+                      </Typography>
+                    )}
+                  </li>
                 ))}
-              </Grid>
+              </ul>
             </>
           )}
         </DialogContent>

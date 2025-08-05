@@ -16,62 +16,14 @@ import Alert from "@mui/material/Alert";
 import List from "@mui/material/List";
 import Drawer from "@mui/material/Drawer";
 import Stack from "@mui/material/Stack";
-import { FaReact, FaVuejs } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 import { useState, type Dispatch, type SetStateAction } from "react";
-import { FaPython } from "react-icons/fa6";
 import { MdMenu } from "react-icons/md";
-import SkillCardComponent, { type SkillBase } from "./skill_card";
+import SkillListComponent from "./skill_list";
+import skillmap from "./skill_map";
 
-const skillmap: SkillBase[] = [
-  {
-    name: "React",
-    icon: <FaReact />,
-    level: {
-      type: "hobby_with_work",
-      maybe: true,
-      length: 2,
-      prefix: "years",
-    },
-    info: {
-      tags: ["frontend"],
-      example: [
-        {
-          title: "Portfolio",
-          url: "https://github.com/Surigoma/portfolio",
-        },
-      ],
-    },
-  },
-  {
-    name: "Vue",
-    icon: <FaVuejs />,
-    level: {
-      type: "studies_only",
-      maybe: true,
-      length: 2,
-      prefix: "years",
-    },
-    info: {
-      tags: ["frontend"],
-    },
-  },
-  {
-    name: "Python",
-    icon: <FaPython />,
-    level: {
-      type: "hobby_with_work",
-      maybe: true,
-      length: 5,
-      prefix: "years",
-    },
-    info: {
-      tags: ["frontend", "backend", "server", "cli_software"],
-    },
-  },
-];
 const targetTags = skillmap
-  .reduce((p, c) => [...p, ...(c.info.tags ?? [])], [""])
+  .reduce((p, c) => [...p, ...(c.meta.tags ?? [])], [""])
   .filter((v, i, a) => a.indexOf(v) === i && v !== "");
 const targetLevel = skillmap
   .map((s) => s.level.type)
@@ -217,10 +169,10 @@ export default function SkillComponent() {
           {skillmap
             .filter((s) => skillFilter.includes(s.level.type))
             .filter(
-              (s) => s.info.tags.filter((t) => tagFilter.includes(t)).length > 0
+              (s) => s.meta.tags.filter((t) => tagFilter.includes(t)).length > 0
             )
             .map((s) => (
-              <SkillCardComponent key={s.name} skill={s} />
+              <SkillListComponent key={s.name} skill={s} selected={tagFilter} />
             ))}
         </List>
       </CardContent>
