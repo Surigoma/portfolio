@@ -95,7 +95,13 @@ function TagSelector({
       <Select
         labelId="tags_title"
         multiple
-        input={<OutlinedInput id="tags" label={t("components.skills.tag")} />}
+        input={
+          <OutlinedInput
+            id="tags"
+            aria-labelledby="tags_title"
+            label={t("components.skills.tag")}
+          />
+        }
         size="small"
         value={tagFilter}
         onChange={(e) => {
@@ -141,9 +147,13 @@ function LevelSelector({
         {t("components.skills.level")}
       </InputLabel>
       <Select
-        label={"level_title"}
+        labelId="level_title"
         input={
-          <OutlinedInput id="levels" label={t("components.skills.level")} />
+          <OutlinedInput
+            id="levels"
+            aria-labelledby="level_title"
+            label={t("components.skills.level")}
+          />
         }
         multiple
         size="small"

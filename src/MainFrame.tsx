@@ -66,6 +66,7 @@ export default function MainFrame() {
           </Tooltip>
           <IconButton
             id="lang"
+            aria-label="Change language"
             aria-controls={open ? "lang-list" : undefined}
             aria-haspopup="true"
             aria-expanded={open ? "true" : undefined}
@@ -102,6 +103,7 @@ export default function MainFrame() {
             </MenuItem>
           </Menu>
           <IconButton
+            aria-label="Change language"
             onClick={() => {
               changeTheme();
             }}
