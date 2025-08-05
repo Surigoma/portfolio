@@ -67,8 +67,8 @@ const skillmap: SkillBase[] = [
     icon: <FaVuejs />,
     level: {
       type: "studies_only",
-      beforeYear: 2024,
-      prefix: "years",
+      length: 2,
+      prefix: "months",
     },
     meta: {
       tags: ["frontend"],
@@ -89,6 +89,10 @@ const skillmap: SkillBase[] = [
           title: "webhook-updater",
           url: "https://github.com/Surigoma/webhook-updater",
         },
+        {
+          title: "raspi-dmxbox",
+          url: "https://github.com/Surigoma/raspi-DMXBox",
+        },
       ],
     },
   },
@@ -108,6 +112,44 @@ const skillmap: SkillBase[] = [
         },
         {
           title: "hobby_linux",
+        },
+      ],
+    },
+  },
+  {
+    name: "C",
+    icon: <SiC />,
+    level: {
+      type: "works_only",
+      beforeYear: 2015,
+      prefix: "years",
+    },
+    meta: {
+      tags: ["backend", "cli_software", "language"],
+      example: [
+        {
+          title: "work_linux_enbedded",
+        },
+      ],
+    },
+  },
+  {
+    name: "C++",
+    icon: <SiCplusplus />,
+    level: {
+      type: "hobby_with_work",
+      beforeYear: 2015,
+      prefix: "years",
+    },
+    meta: {
+      tags: ["cli_software", "language", "hardware"],
+      example: [
+        {
+          title: "work_linux_enbedded",
+        },
+        {
+          title: "IRIG2JJY-M5",
+          url: "https://github.com/Surigoma/IRIG2JJY-M5",
         },
       ],
     },

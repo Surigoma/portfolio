@@ -65,13 +65,17 @@
                 "backend": "BackEnd",
                 "server": "Server",
                 "library": "Library",
-                "cli_software": "CLI"
+                "cli_software": "CLI",
+                "language": "Language",
+                "hardware": "Hardware"
             },
             "messages": {
                 "React": "I started using it at work, and I liked it so much that I ended up using it when creating this page. <br>Unidirectional references are good. They don't get cluttered.",
                 "Vue": "It's easy and simple to write, but I thought the library wasn't very good. <br>It's not maintained...",
                 "Python": "I've been playing around with it since around 2012. <br>Since I started using it at work, it's becoming my main language.",
-                "Linux": "I've been using Ubuntu since I started my home server. <br>Even at work I was switching between kernel space and userland."
+                "Linux": "I've been using Ubuntu since I started my home server. <br>Even at work I was switching between kernel space and userland.",
+                "C": "Used for Linux development. <br>I've been using it at work for the past few years.",
+                "C++": "Used for embedded system (AVR, ESP32) development and a friend's game development library. <br>When I think about it, I've mostly only used it for hobby purposes."
             }
         }
     },
@@ -82,6 +86,12 @@
         },
         "webhook-updater": {
             "title": "webhook-updater"
+        },
+        "raspi-dmxbox": {
+            "title": "raspi-DMXBox"
+        },
+        "IRIG2JJY-M5": {
+            "title": "IRIG2JJY-M5"
         },
         "work_linux_enbedded": {
             "title": "Embedded Linux Development"
