@@ -43,6 +43,11 @@
             "github": "GitHub",
             "linkedin": "Follow on Linkedin"
         },
+        "updated": {
+            "title": "Updated info",
+            "updated_for": "Last Updated",
+            "hash": "Build hash"
+        },
         "skills": {
             "title": "Skills",
             "level": "Skill Level",
@@ -63,9 +68,10 @@
                 "cli_software": "CLI"
             },
             "messages": {
-                "React": "",
-                "Vue": "",
-                "Python": ""
+                "React": "I started using it at work, and I liked it so much that I ended up using it when creating this page. <br>Unidirectional references are good. They don't get cluttered.",
+                "Vue": "It's easy and simple to write, but I thought the library wasn't very good. <br>It's not maintained...",
+                "Python": "I've been playing around with it since around 2012. <br>Since I started using it at work, it's becoming my main language.",
+                "Linux": "I've been using Ubuntu since I started my home server. <br>Even at work I was switching between kernel space and userland."
             }
         }
     },

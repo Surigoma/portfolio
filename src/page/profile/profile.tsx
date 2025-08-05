@@ -5,6 +5,7 @@ import "./profile.scss";
 import SNSComponent from "../../component/sns";
 import ProfileComponent from "../../component/profile";
 import SkillComponent from "../../component/skill";
+import UpdatedComponent from "../../component/updated";
 
 export default function Profile() {
   return (
@@ -17,7 +18,10 @@ export default function Profile() {
           </Stack>
         </Grid>
         <Grid size={{ xs: 12, md: 4 }}>
-          <SNSComponent />
+          <Stack spacing={2}>
+            <SNSComponent />
+            <UpdatedComponent />
+          </Stack>
         </Grid>
       </Grid>
     </Box>

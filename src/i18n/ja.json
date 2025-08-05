@@ -43,6 +43,11 @@
             "github": "GitHub",
             "linkedin": "LinkedIn で フォロー"
         },
+        "updated": {
+            "title": "更新情報",
+            "updated_for": "最終更新日",
+            "hash": "ビルドハッシュ"
+        },
         "skills": {
             "title": "スキル",
             "level": "レベル",
