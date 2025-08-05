@@ -3,8 +3,8 @@
         "date": {
             "years_one": "年",
             "years_other": "年",
-            "months_one": "月",
-            "months_other": "月"
+            "months_one": "ヶ月",
+            "months_other": "ヶ月"
         },
         "dialog": {
             "ok": "OK",
@@ -82,6 +82,12 @@
         },
         "webhook-updater": {
             "title": "webhook-updater"
+        },
+        "raspi-dmxbox": {
+            "title": "raspi-DMXBox"
+        },
+        "IRIG2JJY-M5": {
+            "title": "IRIG2JJY-M5"
         },
         "work_linux_enbedded": {
             "title": "組み込みLinux開発"
