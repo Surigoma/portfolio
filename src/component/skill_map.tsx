@@ -1,6 +1,46 @@
 import { FaLinux, FaReact, FaVuejs } from "react-icons/fa";
 import { FaPython } from "react-icons/fa6";
-import type { SkillBase } from "./skill_list";
+import { SiC, SiCplusplus } from "react-icons/si";
+
+export const SkillLevel = [
+  "studies_only",
+  "hobby",
+  "hobby_with_work",
+  "works_only",
+] as const;
+export type SkillLevelType = (typeof SkillLevel)[number];
+export const TagList = [
+  "frontend",
+  "backend",
+  "server",
+  "library",
+  "hardware",
+  "cli_software",
+  "language",
+] as const;
+export type TagListType = (typeof TagList)[number];
+export const DatePrefixList = ["years", "months"] as const;
+export type DatePrefixListType = (typeof DatePrefixList)[number];
+
+export interface SkillBase {
+  name: string;
+  icon: React.ReactElement;
+  level: {
+    type: SkillLevelType;
+    maybe?: boolean;
+    length?: number;
+    beforeYear?: number;
+    prefix: DatePrefixListType;
+  };
+  meta: {
+    notUseTrans?: boolean;
+    tags: TagListType[];
+    example?: {
+      title: string;
+      url?: string;
+    }[];
+  };
+}
 
 const skillmap: SkillBase[] = [
   {

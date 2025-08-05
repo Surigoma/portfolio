@@ -19,45 +19,7 @@ import { MdClose, MdLink } from "react-icons/md";
 import i18n from "../i18n/config";
 import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
-
-export const SkillLevel = [
-  "studies_only",
-  "hobby",
-  "hobby_with_work",
-  "works_only",
-] as const;
-export type SkillLevelType = (typeof SkillLevel)[number];
-export const TagList = [
-  "frontend",
-  "backend",
-  "server",
-  "library",
-  "hardware",
-  "cli_software",
-] as const;
-export type TagListType = (typeof TagList)[number];
-export const DatePrefixList = ["years", "months"] as const;
-export type DatePrefixListType = (typeof DatePrefixList)[number];
-
-export interface SkillBase {
-  name: string;
-  icon: React.ReactElement;
-  level: {
-    type: SkillLevelType;
-    maybe?: boolean;
-    length?: number;
-    beforeYear?: number;
-    prefix: DatePrefixListType;
-  };
-  meta: {
-    notUseTrans?: boolean;
-    tags: TagListType[];
-    example?: {
-      title: string;
-      url?: string;
-    }[];
-  };
-}
+import type { SkillBase } from "./skill_map";
 
 export default function SkillListComponent({
   skill,
