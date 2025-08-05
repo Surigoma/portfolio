@@ -24,9 +24,6 @@ export default function UpdatedComponent() {
         });
       });
   }, []);
-  useEffect(() => {
-    console.log(meta);
-  }, [meta]);
   const { t } = useTranslation();
   function tt(s: string) {
     return t("components.updated." + s);
