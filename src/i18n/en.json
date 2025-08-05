@@ -9,8 +9,8 @@
         "dialog": {
             "ok": "OK",
             "close": "Close",
-            "example_one": "Example",
-            "example_other": "Examples",
+            "works_example_one": "Production example",
+            "works_example_other": "Production example",
             "maybe": "Maybe"
         }
     },

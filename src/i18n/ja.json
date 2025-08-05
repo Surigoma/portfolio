@@ -9,8 +9,8 @@
         "dialog": {
             "ok": "OK",
             "close": "閉じる",
-            "example_one": "例",
-            "example_other": "例",
+            "works_example_one": "制作例",
+            "works_example_other": "制作例",
             "maybe": "たぶん"
         }
     },
