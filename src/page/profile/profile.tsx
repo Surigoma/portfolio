@@ -4,7 +4,7 @@ import Stack from "@mui/material/Stack";
 import "./profile.scss";
 import SNSComponent from "../../component/sns";
 import ProfileComponent from "../../component/profile";
-import SkilComponent from "../../component/skil";
+import SkillComponent from "../../component/skill";
 
 export default function Profile() {
   return (
@@ -13,7 +13,7 @@ export default function Profile() {
         <Grid size={{ xs: 12, md: 8 }}>
           <Stack spacing={2}>
             <ProfileComponent />
-            <SkilComponent />
+            <SkillComponent />
           </Stack>
         </Grid>
         <Grid size={{ xs: 12, md: 4 }}>

@@ -23,7 +23,7 @@ import { FaPython } from "react-icons/fa6";
 import { MdMenu } from "react-icons/md";
 import SkillCardComponent, { type SkillBase } from "./skill_card";
 
-const skilmap: SkillBase[] = [
+const skillmap: SkillBase[] = [
   {
     name: "React",
     icon: <FaReact />,
@@ -70,10 +70,10 @@ const skilmap: SkillBase[] = [
     },
   },
 ];
-const targetTags = skilmap
+const targetTags = skillmap
   .reduce((p, c) => [...p, ...(c.info.tags ?? [])], [""])
   .filter((v, i, a) => a.indexOf(v) === i && v !== "");
-const targetLevel = skilmap
+const targetLevel = skillmap
   .map((s) => s.level.type)
   .filter((v, i, a) => a.indexOf(v) === i);
 
@@ -177,7 +177,7 @@ function LevelSelector({
     </FormControl>
   );
 }
-export default function SkilComponent() {
+export default function SkillComponent() {
   const [drawer, setDrawer] = useState<boolean>(false);
   const [skillFilter, setSkillFilter] = useState<string[]>([...targetLevel]);
   const [tagFilter, setTagFilter] = useState<string[]>([...targetTags]);
@@ -214,7 +214,7 @@ export default function SkilComponent() {
       <CardContent sx={{ padding: 0 }}>
         <Alert severity="info">{t("messages.adding_now")}</Alert>
         <List>
-          {skilmap
+          {skillmap
             .filter((s) => skillFilter.includes(s.level.type))
             .filter(
               (s) => s.info.tags.filter((t) => tagFilter.includes(t)).length > 0

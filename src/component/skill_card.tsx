@@ -92,9 +92,9 @@ export default function SkillCardComponent({ skill }: { skill: SkillBase }) {
         open={opened}
         aria-hidden={!opened}
         onClose={() => setOpened(false)}
-        aria-labelledby={"skil_" + skill.name + "_title"}
+        aria-labelledby={"skill_" + skill.name + "_title"}
       >
-        <DialogTitle id={"skil_" + skill.name + "_title"}>
+        <DialogTitle id={"skill_" + skill.name + "_title"}>
           {skill.name}
         </DialogTitle>
         <IconButton
