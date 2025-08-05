@@ -22,6 +22,8 @@ jobs:
         run: pnpm i --frozen-lockfile
       - name: Build
         run: pnpm build
+      - name: Generate info
+        run: pnpm run gen_info
       - name: Archive Production Build
         run: tar -czf release.tar.gz --directory=./dist ./
       - name: Create Release

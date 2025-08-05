@@ -23,4 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 
+public/file/build.json
+public/file/sitemap.xml
 public/injection.js
