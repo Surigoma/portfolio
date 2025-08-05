@@ -113,9 +113,7 @@ export default function SkillListComponent({
           <Stack spacing={1}>
             {skill.name}
             <Grid container flexDirection="row" spacing={1}>
-              <Typography inlist={true}>
-                {t("components.skills.tag") + " :"}
-              </Typography>
+              <Typography>{t("components.skills.tag") + " :"}</Typography>
               {skill.meta.tags.map((v) => (
                 <Chip
                   key={v}
