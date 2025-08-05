@@ -54,9 +54,16 @@ export const useLocale = (): LocaleContext => {
   const [locale, setLocale] = useState<SupportedLocales>(
     i18n.language as SupportedLocales
   );
+  function updateHTMLElement() {
+    document.getElementsByTagName("html")[0].setAttribute("lang", locale);
+  }
+  useEffect(() => {
+    updateHTMLElement();
+  }, []);
   useEffect(() => {
     if (i18n.language !== locale) {
       i18n.changeLanguage(locale);
+      updateHTMLElement();
     }
   }, [locale]);
   return {
