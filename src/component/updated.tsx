@@ -15,7 +15,7 @@ interface BuildMeta {
 export default function UpdatedComponent() {
   const [meta, setMeta] = useState<BuildMeta>({});
   useEffect(() => {
-    fetch("file/build.json")
+    fetch("meta/build.json")
       .then((r) => r.json())
       .then((d) => {
         setMeta({

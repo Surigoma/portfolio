@@ -25,5 +25,23 @@ const build_info = {
   update: git_info[1],
 };
 
-fs.writeFile("public/file/sitemap.xml", sitemap, () => {});
-fs.writeFile("public/file/build.json", JSON.stringify(build_info), () => {});
+console.log("Create Dir...");
+fs.mkdir("public/meta/", { recursive: true }, (e) => {
+  if (e) {
+    throw e;
+  }
+});
+console.log("Create sitemap.xml");
+fs.writeFile("public/meta/sitemap.xml", sitemap, (e) => {
+  if (e) {
+    throw e;
+  }
+});
+console.log("Create build.json");
+fs.writeFile("public/meta/build.json", JSON.stringify(build_info), (e) => {
+  if (e) {
+    throw e;
+  }
+});
+
+console.log("Complite.");
