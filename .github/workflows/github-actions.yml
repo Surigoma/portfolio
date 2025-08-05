@@ -20,10 +20,10 @@ jobs:
           version: 10
       - name: Install dependencies
         run: pnpm i --frozen-lockfile
-      - name: Build
-        run: pnpm build
       - name: Generate info
         run: pnpm run gen_info
+      - name: Build
+        run: pnpm build
       - name: Archive Production Build
         run: tar -czf release.tar.gz --directory=./dist ./
       - name: Create Release
