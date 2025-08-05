@@ -19,7 +19,7 @@ const sitemap = `
     </url>
 </urlset>
 `;
-const git_info = execSync(git_cmd).toString().split(",");
+const git_info = execSync(git_cmd).toString().replace("\n", "").split(",");
 const build_info = {
   hash: git_info[0],
   update: git_info[1],
