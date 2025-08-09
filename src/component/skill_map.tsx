@@ -1,6 +1,7 @@
 import { FaLinux, FaReact, FaVuejs } from "react-icons/fa";
 import { FaPython } from "react-icons/fa6";
 import { SiC, SiCplusplus } from "react-icons/si";
+import { TbBrandCSharp } from "react-icons/tb";
 
 export const SkillLevel = [
   "studies_only",
@@ -16,6 +17,7 @@ export const TagList = [
   "library",
   "hardware",
   "cli_software",
+  "gui_software",
   "language",
 ] as const;
 export type TagListType = (typeof TagList)[number];
@@ -150,6 +152,28 @@ const skillmap: SkillBase[] = [
         {
           title: "IRIG2JJY-M5",
           url: "https://github.com/Surigoma/IRIG2JJY-M5",
+        },
+      ],
+    },
+  },
+  {
+    name: "C#",
+    icon: <TbBrandCSharp />,
+    level: {
+      type: "hobby",
+      beforeYear: 2016,
+      prefix: "years",
+    },
+    meta: {
+      tags: ["gui_software", "library", "language"],
+      example: [
+        {
+          title: "electronic_bulletin_borad",
+          url: "https://github.com/Surigoma/Electronicboard",
+        },
+        {
+          title: "twitry",
+          url: "https://github.com/Surigoma/Twitry",
         },
       ],
     },

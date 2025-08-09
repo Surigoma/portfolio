@@ -66,6 +66,7 @@
                 "server": "Server",
                 "library": "Library",
                 "cli_software": "CLI",
+                "gui_software": "GUI",
                 "language": "Language",
                 "hardware": "Hardware"
             },
@@ -75,7 +76,8 @@
                 "Python": "I've been playing around with it since around 2012. <br>Since I started using it at work, it's becoming my main language.",
                 "Linux": "I've been using Ubuntu since I started my home server. <br>Even at work I was switching between kernel space and userland.",
                 "C": "Used for Linux development. <br>I've been using it at work for the past few years.",
-                "C++": "Used for embedded system (AVR, ESP32) development and a friend's game development library. <br>When I think about it, I've mostly only used it for hobby purposes."
+                "C++": "Used for embedded system (AVR, ESP32) development and a friend's game development library. <br>When I think about it, I've mostly only used it for hobby purposes.",
+                "C#": "Used when creating GUI tools for Windows. <br> I remember creating libraries for the old Twitter client and tools for controlling electronic bulletin boards."
             }
         }
     },
@@ -98,6 +100,12 @@
         },
         "hobby_linux": {
             "title": "Building a home server"
+        },
+        "electronic_bulletin_borad": {
+            "title": "Electronic bulletin board"
+        },
+        "twitry": {
+            "title": "Twitry(Library for before Twitter client)"
         }
     }
 }
