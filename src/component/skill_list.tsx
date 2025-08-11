@@ -61,7 +61,7 @@ export default function SkillListComponent({
           </Avatar>
         </ListItemAvatar>
         <ListItemText
-          primary={skill.name}
+          primary={t("components.skills.skill_title." + skill.name)}
           secondary={skill_level_length}
         ></ListItemText>
       </ListItemButton>
@@ -73,7 +73,7 @@ export default function SkillListComponent({
       >
         <DialogTitle id={"skill_" + skill.name + "_title"}>
           <Stack spacing={1}>
-            {skill.name}
+            {t("components.skills.skill_title." + skill.name)}
             <Grid container flexDirection="row" spacing={1}>
               <Typography>{t("components.skills.tag") + " :"}</Typography>
               {skill.meta.tags.map((v) => (

@@ -70,6 +70,15 @@
                 "language": "Language",
                 "hardware": "Hardware"
             },
+            "skill_title": {
+                "React": "React",
+                "Vue": "Vue",
+                "Python": "Python",
+                "Linux": "Linux",
+                "C": "C",
+                "C++": "C++",
+                "C#": "C#"
+            },
             "messages": {
                 "React": "I started using it at work, and I liked it so much that I ended up using it when creating this page. <br>Unidirectional references are good. They don't get cluttered.",
                 "Vue": "It's easy and simple to write, but I thought the library wasn't very good. <br>It's not maintained...",
