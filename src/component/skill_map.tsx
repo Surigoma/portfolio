@@ -2,6 +2,7 @@ import { FaLinux, FaReact, FaVuejs } from "react-icons/fa";
 import { FaPython } from "react-icons/fa6";
 import { SiC, SiCplusplus } from "react-icons/si";
 import { TbBrandCSharp } from "react-icons/tb";
+import { PiCircuitry } from "react-icons/pi";
 
 export const SkillLevel = [
   "studies_only",
@@ -174,6 +175,28 @@ const skillmap: SkillBase[] = [
         {
           title: "twitry",
           url: "https://github.com/Surigoma/Twitry",
+        },
+      ],
+    },
+  },
+  {
+    name: "circuit_development",
+    icon: <PiCircuitry />,
+    level: {
+      type: "hobby",
+      beforeYear: 2010,
+      prefix: "years",
+    },
+    meta: {
+      tags: ["hardware"],
+      example: [
+        {
+          title: "electronic_bulletin_borad",
+          url: "https://github.com/Surigoma/Electronicboard",
+        },
+        {
+          title: "IRIG2JJY-M5",
+          url: "https://github.com/Surigoma/IRIG2JJY-M5",
         },
       ],
     },
