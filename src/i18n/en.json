@@ -78,7 +78,8 @@
                 "C": "C",
                 "C++": "C++",
                 "C#": "C#",
-                "circuit_development": "Circuit Development"
+                "circuit_development": "Circuit Development",
+                "Go": "Go"
             },
             "messages": {
                 "React": "I started using it at work, and I liked it so much that I ended up using it when creating this page. <br>Unidirectional references are good. They don't get cluttered.",
@@ -88,7 +89,8 @@
                 "C": "Used for Linux development. <br>I've been using it at work for the past few years.",
                 "C++": "Used for embedded system (AVR, ESP32) development and a friend's game development library. <br>When I think about it, I've mostly only used it for hobby purposes.",
                 "C#": "Used when creating GUI tools for Windows. <br> I remember creating libraries for the old Twitter client and tools for controlling electronic bulletin boards.",
-                "circuit_development": "I studied this as a specialized subject at a technical college. <br>I also do electronics as a hobby. <br>I have experience designing circuits for work, although none have been commercialized. <br>I have used PCBE->Eagle->KiCad."
+                "circuit_development": "I studied this as a specialized subject at a technical college. <br>I also do electronics as a hobby. <br>I have experience designing circuits for work, although none have been commercialized. <br>I have used PCBE->Eagle->KiCad.",
+                "Go": "I started studying it as a hobby. <br>I got tired of Python and cheated on it. <br>I use it for software that requires stability."
             }
         }
     },
@@ -117,6 +119,12 @@
         },
         "twitry": {
             "title": "Twitry(Library for before Twitter client)"
+        },
+        "DMXBOX": {
+            "title": "DMXBOX(Successor to raspi-DMXBox)"
+        },
+        "ledDisplay": {
+            "title": "ledDisplay"
         }
     }
 }

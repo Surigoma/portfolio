@@ -1,5 +1,5 @@
 import { FaLinux, FaReact, FaVuejs } from "react-icons/fa";
-import { FaPython } from "react-icons/fa6";
+import { FaGolang, FaPython } from "react-icons/fa6";
 import { SiC, SiCplusplus } from "react-icons/si";
 import { TbBrandCSharp } from "react-icons/tb";
 import { PiCircuitry } from "react-icons/pi";
@@ -95,6 +95,10 @@ const skillmap: SkillBase[] = [
         {
           title: "raspi-dmxbox",
           url: "https://github.com/Surigoma/raspi-DMXBox",
+        },
+        {
+          title: "ledDisplay",
+          url: "https://github.com/Surigoma/ledDisplay",
         },
       ],
     },
@@ -197,6 +201,24 @@ const skillmap: SkillBase[] = [
         {
           title: "IRIG2JJY-M5",
           url: "https://github.com/Surigoma/IRIG2JJY-M5",
+        },
+      ],
+    },
+  },
+  {
+    name: "Go",
+    icon: <FaGolang />,
+    level: {
+      type: "hobby",
+      beforeYear: 2024,
+      prefix: "years",
+    },
+    meta: {
+      tags: ["backend", "language", "cli_software"],
+      example: [
+        {
+          title: "DMXBOX",
+          url: "https://github.com/Surigoma/DMXBOX",
         },
       ],
     },

@@ -26,3 +26,4 @@ dist-ssr
 public/meta/build.json
 public/meta/sitemap.xml
 public/injection.js
+.pnpm-store/*
