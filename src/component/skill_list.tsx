@@ -14,18 +14,20 @@ import Typography from "@mui/material/Typography";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useColorScheme } from "@mui/material/styles";
 import { useState } from "react";
-import { Trans, useTranslation } from "react-i18next";
-import { MdClose, MdLink } from "react-icons/md";
-import i18n from "../i18n/config";
+import { useTranslation } from "react-i18next";
+import { MdArticle, MdClose, MdOpenInNew } from "react-icons/md";
+import { FaGithub } from "react-icons/fa";
 import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
-import type { SkillBase } from "./skill_map";
+import { skillText, works, type Language, type SkillData } from "../data/portfolio";
+import { skillIcons } from "../data/skill-icons";
+import { Link as RouterLink } from "react-router";
 
 export default function SkillListComponent({
   skill,
   selected,
 }: {
-  skill: SkillBase;
+  skill: SkillData;
   selected: string[];
 }) {
   const [opened, setOpened] = useState<boolean>(false);
@@ -34,34 +36,32 @@ export default function SkillListComponent({
   const isDark =
     ((mode == undefined || mode == "system") && prefersDarkMode) ||
     mode == "dark";
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const language: Language = i18n.resolvedLanguage?.startsWith("en") ? "en" : "ja";
+  const text = skillText[language];
+  const examples = works.filter((work) => work.skills.includes(skill.id));
   const beforeYear = skill.level.beforeYear
     ? new Date(Date.now()).getFullYear() - skill.level.beforeYear!
     : skill.level.length;
-  const skill_level_length =
-    t("components.skills.level") +
-    " : " +
-    t("components.skills.levels." + skill.level.type) +
-    " - " +
-    (skill.level.maybe === true ? t("basic.dialog.maybe") : "") +
-    " " +
-    beforeYear +
-    " " +
-    t("basic.date." + skill.level.prefix, { count: beforeYear });
+  const skill_level_length = `${text.level} : ${text.levels[skill.level.type]}${
+    beforeYear && skill.level.prefix
+      ? ` - ${skill.level.maybe ? t("basic.dialog.maybe") : ""} ${beforeYear} ${t(`basic.date.${skill.level.prefix}`, { count: beforeYear })}`
+      : ""
+  }`;
   return (
     <>
       <ListItemButton
-        key={skill.name}
+        key={skill.id}
         sx={{ py: 0 }}
         onClick={() => setOpened(true)}
       >
         <ListItemAvatar>
           <Avatar sx={{ color: isDark ? "white" : "black" }}>
-            {skill.icon}
+            {skillIcons[skill.id]}
           </Avatar>
         </ListItemAvatar>
         <ListItemText
-          primary={t("components.skills.skill_title." + skill.name)}
+          primary={skill.title[language]}
           secondary={skill_level_length}
         ></ListItemText>
       </ListItemButton>
@@ -69,19 +69,19 @@ export default function SkillListComponent({
         open={opened}
         aria-hidden={!opened}
         onClose={() => setOpened(false)}
-        aria-labelledby={"skill_" + skill.name + "_title"}
+        aria-labelledby={"skill_" + skill.id + "_title"}
       >
-        <DialogTitle id={"skill_" + skill.name + "_title"}>
+        <DialogTitle id={"skill_" + skill.id + "_title"}>
           <Stack spacing={1}>
-            {t("components.skills.skill_title." + skill.name)}
+            {skill.title[language]}
             <Grid container flexDirection="row" spacing={1}>
-              <Typography>{t("components.skills.tag") + " :"}</Typography>
-              {skill.meta.tags.map((v) => (
+              <Typography>{text.tag + " :"}</Typography>
+              {skill.tags.map((v) => (
                 <Chip
                   key={v}
                   color={selected.includes(v) ? "primary" : "default"}
                   variant="outlined"
-                  label={t("components.skills.tags." + v)}
+                  label={text.tags[v]}
                   size="small"
                 />
               ))}
@@ -112,40 +112,47 @@ export default function SkillListComponent({
           <Typography variant="subtitle2" sx={{ pb: 1 }}>
             {skill_level_length}
           </Typography>
-          <DialogContentText>
-            <Trans
-              t={t}
-              i18nKey={"components.skills.messages." + skill.name}
-              components={{ br: <br /> }}
-            ></Trans>
+          <DialogContentText component="div">
+            {skill.description[language].map((paragraph) => (
+              <Typography paragraph key={paragraph}>{paragraph}</Typography>
+            ))}
           </DialogContentText>
-          {i18n.language != "ja" && !skill.meta.notUseTrans && (
-            <Grid justifyContent="flex-end" container>
-              <Typography align="right" width="100%" variant="caption">
-                Using Google Translate
-              </Typography>
-            </Grid>
-          )}
-          {skill.meta.example !== undefined && (
+          {examples.length > 0 && (
             <>
               <Divider sx={{ my: 1 }}>
                 {t("basic.dialog.works_example", {
-                  count: skill.meta.example.length,
+                  count: examples.length,
                 })}
               </Divider>
               <ul>
-                {skill.meta.example.map((v) => (
-                  <li key={v.title}>
-                    {(v.url !== undefined && (
-                      <Link href={v.url}>
-                        {t("works." + v.title + ".title")}
-                        <MdLink />
-                      </Link>
-                    )) || (
-                      <Typography>
-                        {t("works." + v.title + ".title")}
-                      </Typography>
-                    )}
+                {examples.map((work) => (
+                  <li key={work.id}>
+                    <Stack direction="row" spacing={1} alignItems="center" flexWrap="wrap">
+                      <Typography component="span">{work.title[language]}</Typography>
+                      {work.description && (
+                        <Link
+                          component={RouterLink}
+                          to={`/works/${work.id}`}
+                          onClick={() => setOpened(false)}
+                          sx={{ display: "inline-flex", alignItems: "center", gap: 0.5 }}
+                        >
+                          <MdArticle />
+                          {t("works.article")}
+                        </Link>
+                      )}
+                      {work.href && (
+                        <Link
+                          href={work.href}
+                          target="_blank"
+                          rel="noreferrer"
+                          sx={{ display: "inline-flex", alignItems: "center", gap: 0.5 }}
+                        >
+                          <FaGithub />
+                          GitHub
+                          <MdOpenInNew />
+                        </Link>
+                      )}
+                    </Stack>
                   </li>
                 ))}
               </ul>

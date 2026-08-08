@@ -47,84 +47,15 @@
             "title": "更新情報",
             "updated_for": "最終更新日",
             "hash": "ビルドハッシュ"
-        },
-        "skills": {
-            "title": "スキル",
-            "level": "レベル",
-            "levels": {
-                "all": "すべて",
-                "studies_only": "勉強のみ",
-                "hobby": "趣味",
-                "hobby_with_work": "趣味も仕事も",
-                "works_only": "仕事のみ"
-            },
-            "tag": "タグ",
-            "tags": {
-                "all": "すべて",
-                "frontend": "フロントエンド",
-                "backend": "バックエンド",
-                "server": "サーバー",
-                "library": "ライブラリ",
-                "cli_software": "CLI",
-                "gui_software": "GUI",
-                "language": "言語",
-                "hardware": "ハード"
-            },
-            "skill_title": {
-                "React": "React",
-                "Vue": "Vue",
-                "Python": "Python",
-                "Linux": "Linux",
-                "C": "C",
-                "C++": "C++",
-                "C#": "C#",
-                "circuit_development": "回路設計",
-                "Go": "Go"
-            },
-            "messages": {
-                "React": "仕事で触り始めて、結果このページを作る際に採用するほど気に入ってはいる。<br>単方向参照はいいよね。ごちゃごちゃしない。",
-                "Vue": "楽ちんで書きやすいけど、ライブラリがちょっとイケてないなと思った。<br>メンテナンスされてないものだったりするのがなぁ。。。",
-                "Python": "2012年ぐらいからちょこちょこ触ってきた。<br>仕事で使い始めてから、メイン言語になりつつある。",
-                "Linux": "自宅鯖を始めたときから、Ubuntuを使っています。<br>仕事でもカーネル空間とユーザーランドを行き来していました。",
-                "C": "Linux系開発で利用。<br>ここんところ数年はずっと仕事で使ってました。",
-                "C++": "組み込み系(AVR,ESP32)系開発・友人のゲーム開発用ライブラリで利用。<br>よく考えたらほとんど趣味でしか使ってないな。",
-                "C#": "WindowsのGUIツール作成時に使用。<br>旧Twitterクライアント向けライブラリや電光掲示板の制御用ツールを作ったのが思い出",
-                "circuit_development": "高専時代に専門学科として勉強。<br>また趣味でも電子工作を行っている。<br>製品化はされていないが仕事でも回路設計を行った経験あり。<br>PCBE->Eagle->KiCadを使ってきた。",
-                "Go": "趣味で勉強を開始した。<br>Pythonに嫌気がさして浮気しました。<br>安定を求めるようなソフトに対して採用している。"
-            }
         }
     },
     "profile": {},
     "works": {
-        "portfolio": {
-            "title": "ポートフォリオサイト"
-        },
-        "webhook-updater": {
-            "title": "webhook-updater"
-        },
-        "raspi-dmxbox": {
-            "title": "raspi-DMXBox"
-        },
-        "IRIG2JJY-M5": {
-            "title": "IRIG2JJY-M5"
-        },
-        "work_linux_enbedded": {
-            "title": "組み込みLinux開発"
-        },
-        "hobby_linux": {
-            "title": "自宅サーバー構築"
-        },
-        "electronic_bulletin_borad": {
-            "title": "電光掲示板"
-        },
-        "twitry": {
-            "title": "Twitry(旧Twitterクライアント用ライブラリ)"
-        },
-        "DMXBOX": {
-            "title": "DMXBOX(raspi-DMXBoxの後続)"
-        },
-        "ledDisplay": {
-            "title": "ledDisplay"
-        }
+        "introduction": "仕事や個人開発で制作した、ソフトウェアとハードウェアの一部を紹介します。",
+        "featured": "代表作",
+        "details": "詳しく見る",
+        "article": "記事",
+        "back": "制作物一覧へ戻る",
+        "notFound": "制作物が見つかりませんでした。"
     }
 }

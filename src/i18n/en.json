@@ -47,84 +47,15 @@
             "title": "Updated info",
             "updated_for": "Last Updated",
             "hash": "Build hash"
-        },
-        "skills": {
-            "title": "Skills",
-            "level": "Skill Level",
-            "levels": {
-                "all": "ALL",
-                "studies_only": "Studies Only",
-                "hobby": "Hobby",
-                "hobby_with_work": "Hobby with Work",
-                "works_only": "Works Only"
-            },
-            "tag": "Tags",
-            "tags": {
-                "all": "ALL",
-                "frontend": "FrontEnd",
-                "backend": "BackEnd",
-                "server": "Server",
-                "library": "Library",
-                "cli_software": "CLI",
-                "gui_software": "GUI",
-                "language": "Language",
-                "hardware": "Hardware"
-            },
-            "skill_title": {
-                "React": "React",
-                "Vue": "Vue",
-                "Python": "Python",
-                "Linux": "Linux",
-                "C": "C",
-                "C++": "C++",
-                "C#": "C#",
-                "circuit_development": "Circuit Development",
-                "Go": "Go"
-            },
-            "messages": {
-                "React": "I started using it at work, and I liked it so much that I ended up using it when creating this page. <br>Unidirectional references are good. They don't get cluttered.",
-                "Vue": "It's easy and simple to write, but I thought the library wasn't very good. <br>It's not maintained...",
-                "Python": "I've been playing around with it since around 2012. <br>Since I started using it at work, it's becoming my main language.",
-                "Linux": "I've been using Ubuntu since I started my home server. <br>Even at work I was switching between kernel space and userland.",
-                "C": "Used for Linux development. <br>I've been using it at work for the past few years.",
-                "C++": "Used for embedded system (AVR, ESP32) development and a friend's game development library. <br>When I think about it, I've mostly only used it for hobby purposes.",
-                "C#": "Used when creating GUI tools for Windows. <br> I remember creating libraries for the old Twitter client and tools for controlling electronic bulletin boards.",
-                "circuit_development": "I studied this as a specialized subject at a technical college. <br>I also do electronics as a hobby. <br>I have experience designing circuits for work, although none have been commercialized. <br>I have used PCBE->Eagle->KiCad.",
-                "Go": "I started studying it as a hobby. <br>I got tired of Python and cheated on it. <br>I use it for software that requires stability."
-            }
         }
     },
     "profile": {},
     "works": {
-        "portfolio": {
-            "title": "Portfolio"
-        },
-        "webhook-updater": {
-            "title": "webhook-updater"
-        },
-        "raspi-dmxbox": {
-            "title": "raspi-DMXBox"
-        },
-        "IRIG2JJY-M5": {
-            "title": "IRIG2JJY-M5"
-        },
-        "work_linux_enbedded": {
-            "title": "Embedded Linux Development"
-        },
-        "hobby_linux": {
-            "title": "Building a home server"
-        },
-        "electronic_bulletin_borad": {
-            "title": "Electronic bulletin board"
-        },
-        "twitry": {
-            "title": "Twitry(Library for before Twitter client)"
-        },
-        "DMXBOX": {
-            "title": "DMXBOX(Successor to raspi-DMXBox)"
-        },
-        "ledDisplay": {
-            "title": "ledDisplay"
-        }
+        "introduction": "A selection of software and hardware projects I have built for work and personal exploration.",
+        "featured": "Featured work",
+        "details": "View details",
+        "article": "Article",
+        "back": "Back to works",
+        "notFound": "This work could not be found."
     }
 }

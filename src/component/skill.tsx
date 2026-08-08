@@ -20,12 +20,18 @@ import { useTranslation } from "react-i18next";
 import { useEffect, useState, type Dispatch, type SetStateAction } from "react";
 import { MdMenu } from "react-icons/md";
 import SkillListComponent from "./skill_list";
-import skillmap from "./skill_map";
+import {
+  skills,
+  skillText,
+  type Language,
+  type SkillLevel,
+  type SkillTag,
+} from "../data/portfolio";
 
-const targetTags = skillmap
-  .reduce((p, c) => [...p, ...(c.meta.tags ?? [])], [""])
-  .filter((v, i, a) => a.indexOf(v) === i && v !== "");
-const targetLevel = skillmap
+const targetTags = skills
+  .flatMap((skill) => skill.tags)
+  .filter((value, index, values) => values.indexOf(value) === index);
+const targetLevel = skills
   .map((s) => s.level.type)
   .filter((v, i, a) => a.indexOf(v) === i);
 
@@ -34,15 +40,17 @@ function TagSelector({
   setTagFilter,
   style,
 }: {
-  tagFilter: string[];
-  setTagFilter: Dispatch<SetStateAction<string[]>>;
+  tagFilter: SkillTag[];
+  setTagFilter: Dispatch<SetStateAction<SkillTag[]>>;
   style?: React.CSSProperties;
 }) {
-  const { t } = useTranslation();
+  const { i18n } = useTranslation();
+  const language: Language = i18n.resolvedLanguage?.startsWith("en") ? "en" : "ja";
+  const text = skillText[language];
   return (
     <FormControl sx={{ m: 1, ...style }}>
       <InputLabel id="tags_title" size="small" htmlFor="tags">
-        {t("components.skills.tag")}
+        {text.tag}
       </InputLabel>
       <Select
         labelId="tags_title"
@@ -51,23 +59,23 @@ function TagSelector({
           <OutlinedInput
             id="tags"
             aria-labelledby="tags_title"
-            label={t("components.skills.tag")}
+            label={text.tag}
           />
         }
         size="small"
         value={tagFilter}
         onChange={(e) => {
-          setTagFilter([...e.target.value]);
+          setTagFilter(e.target.value as SkillTag[]);
         }}
         renderValue={(tags) => (
           <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
             {(tags.length >= targetTags.length && (
-              <Chip label={t("components.skills.tags.all")} size="small" />
+              <Chip label={text.all} size="small" />
             )) ||
               tags.map((tag) => (
                 <Chip
                   key={tag}
-                  label={t("components.skills.tags." + tag)}
+                  label={text.tags[tag]}
                   size="small"
                 />
               ))}
@@ -76,7 +84,7 @@ function TagSelector({
       >
         {targetTags.map((tag) => (
           <MenuItem key={tag} value={tag}>
-            {t("components.skills.tags." + tag)}
+            {text.tags[tag]}
           </MenuItem>
         ))}
       </Select>
@@ -88,15 +96,17 @@ function LevelSelector({
   setSkillFilter,
   style,
 }: {
-  skillFilter: string[];
-  setSkillFilter: Dispatch<SetStateAction<string[]>>;
+  skillFilter: SkillLevel[];
+  setSkillFilter: Dispatch<SetStateAction<SkillLevel[]>>;
   style?: React.CSSProperties;
 }) {
-  const { t } = useTranslation();
+  const { i18n } = useTranslation();
+  const language: Language = i18n.resolvedLanguage?.startsWith("en") ? "en" : "ja";
+  const text = skillText[language];
   return (
     <FormControl sx={{ m: 1, ...style }}>
       <InputLabel id="level_title" size="small" htmlFor="levels">
-        {t("components.skills.level")}
+        {text.level}
       </InputLabel>
       <Select
         labelId="level_title"
@@ -104,25 +114,25 @@ function LevelSelector({
           <OutlinedInput
             id="levels"
             aria-labelledby="level_title"
-            label={t("components.skills.level")}
+            label={text.level}
           />
         }
         multiple
         size="small"
         value={skillFilter}
         onChange={(e) => {
-          setSkillFilter([...e.target.value]);
+          setSkillFilter(e.target.value as SkillLevel[]);
         }}
         renderValue={(s) =>
           s.length >= targetLevel.length
-            ? t("components.skills.levels.all")
-            : s.map((s) => t("components.skills.levels." + s)).join(",")
+            ? text.all
+            : s.map((level) => text.levels[level]).join(",")
         }
       >
         {targetLevel.map((s) => (
           <MenuItem key={s} value={s}>
             <Checkbox checked={skillFilter.includes(s)} size="small" />
-            <ListItemText primary={t("components.skills.levels." + s)} />
+            <ListItemText primary={text.levels[s]} />
           </MenuItem>
         ))}
       </Select>
@@ -131,9 +141,10 @@ function LevelSelector({
 }
 export default function SkillComponent() {
   const [drawer, setDrawer] = useState<boolean>(false);
-  const [skillFilter, setSkillFilter] = useState<string[]>([...targetLevel]);
-  const [tagFilter, setTagFilter] = useState<string[]>([...targetTags]);
-  const { t } = useTranslation();
+  const [skillFilter, setSkillFilter] = useState<SkillLevel[]>([...targetLevel]);
+  const [tagFilter, setTagFilter] = useState<SkillTag[]>([...targetTags]);
+  const { t, i18n } = useTranslation();
+  const language: Language = i18n.resolvedLanguage?.startsWith("en") ? "en" : "ja";
   const minWidth = useMediaQuery((t) => t.breakpoints.up("sm"));
   useEffect(() => {
     if (minWidth) setDrawer(false);
@@ -141,7 +152,7 @@ export default function SkillComponent() {
   return (
     <Card variant="outlined" className="skill_card">
       <CardHeader
-        title={t("components.skills.title")}
+        title={skillText[language].title}
         action={
           minWidth ? (
             <>
@@ -166,13 +177,13 @@ export default function SkillComponent() {
       <CardContent sx={{ padding: 0 }}>
         <Alert severity="info">{t("messages.adding_now")}</Alert>
         <List>
-          {skillmap
+          {skills
             .filter((s) => skillFilter.includes(s.level.type))
             .filter(
-              (s) => s.meta.tags.filter((t) => tagFilter.includes(t)).length > 0
+              (s) => s.tags.some((tag) => tagFilter.includes(tag))
             )
             .map((s) => (
-              <SkillListComponent key={s.name} skill={s} selected={tagFilter} />
+              <SkillListComponent key={s.id} skill={s} selected={tagFilter} />
             ))}
         </List>
       </CardContent>

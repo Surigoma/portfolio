@@ -116,8 +116,11 @@ export default function MainFrame() {
       </Container>
       <Container>
         <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-          <Tabs aria-label="basic tabs example" value={location.pathname}>
-            {routeBase[0].children?.map((e) => {
+          <Tabs
+            aria-label="basic tabs example"
+            value={location.pathname.startsWith("/works") ? "/works" : location.pathname}
+          >
+            {routeBase[0].children?.filter((e) => !e.hideFromNav).map((e) => {
               return (
                 <Tab
                   label={t(e.title)}
