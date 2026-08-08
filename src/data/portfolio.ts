@@ -1,7 +1,7 @@
 export type Language = "ja" | "en";
 export type SkillLevel = "studies_only" | "hobby" | "hobby_with_work" | "works_only";
 export type SkillTag = "frontend" | "backend" | "server" | "library" | "hardware" | "cli_software" | "gui_software" | "language" | "cloud" | "devops" | "tools";
-export type SkillId = "React" | "Vue" | "Python" | "Linux" | "C" | "C++" | "C#" | "circuit_development" | "Go" | "TypeScript" | "embedded" | "CI/CD" | "AWS" | "Kubernetes" | "AI-assisted_development";
+export type SkillId = "React" | "Vue" | "Python" | "Linux" | "C" | "C++" | "C#" | "circuit_development" | "Go" | "TypeScript" | "embedded" | "CI/CD" | "AWS" | "Kubernetes" | "AI-assisted_development" | "unreal_engine" | "Blender";
 type LocalizedText = Record<Language, string>;
 
 export const skillText = {
@@ -107,12 +107,23 @@ export const skills: SkillData[] = [
     description: { ja: ["生成AIを要件整理、設計、実装、レビュー、ドキュメント作成に活用しています。", "提案をそのまま採用せず、既存コードとの整合性や実行結果を検証しながら開発を効率化しています。"], en: ["I use generative AI for requirements analysis, design, implementation, review, and documentation.", "Rather than accepting suggestions as-is, I verify them against the existing code and execution results to improve development efficiency."] },
     level: { type: "hobby_with_work" }, tags: ["tools"],
   },
+  {
+    id: "unreal_engine", title: { ja: "Unreal Engine", en: "Unreal Engine" },
+    description: { ja: ["イベント会場の舞台、照明、映像を事前検証するリアルタイムシミュレーション環境を構築しました。", "Blueprint、Art-Net / DMX、NDIを組み合わせ、3イベントで運用しています。"], en: ["I built a real-time simulation environment for previsualizing event stages, lighting, and video.", "It combines Blueprint, Art-Net / DMX, and NDI and has been used for three events."] },
+    level: { type: "hobby_with_work" }, tags: ["gui_software", "tools"],
+  },
+  {
+    id: "Blender", title: { ja: "Blender", en: "Blender" },
+    description: { ja: ["会場図面を基に、舞台、スクリーン、スピーカー、既存設備などを検証に必要な精度で3Dモデル化しました。", "細部を目的に応じて簡略化し、限られた準備期間での制作効率を高めています。"], en: ["I create fit-for-purpose 3D models of stages, screens, speakers, and venue fixtures from floor plans.", "I simplify nonessential details to improve modeling efficiency within limited preparation time."] },
+    level: { type: "hobby_with_work" }, tags: ["gui_software", "tools"],
+  },
 ];
 
 export type WorkData = { id: string; title: LocalizedText; description?: LocalizedText; skills: SkillId[]; tags?: string[]; href?: string; featured?: boolean };
 export const works: WorkData[] = [
   { id: "DMXBOX", title: { ja: "DMXBOX", en: "DMXBOX" }, description: { ja: "raspi-DMXBoxの後継として、安定した運用を重視して開発した照明制御システムです。", en: "A lighting-control system developed as the successor to raspi-DMXBox, with an emphasis on reliable operation." }, skills: ["Go", "React", "TypeScript"], tags: ["Go", "React", "TypeScript", "Linux", "Hardware"], href: "https://github.com/Surigoma/DMXBOX", featured: true },
   { id: "portfolio", title: { ja: "ポートフォリオサイト", en: "Portfolio" }, description: { ja: "スキルや制作物を分かりやすく紹介するために制作した、多言語対応のポートフォリオサイトです。", en: "This bilingual portfolio site presents my skills and projects in a clear, responsive interface." }, skills: ["React", "TypeScript", "CI/CD", "AI-assisted_development"], tags: ["React", "TypeScript", "MUI"], href: "https://github.com/Surigoma/portfolio" },
+  { id: "stage-visualization", title: { ja: "イベント向け舞台設計・事前検証システム", en: "Event Stage Design and Previsualization System" }, description: { ja: "舞台・照明・映像を設営前に検証し、現場作業を従来の約3分の1に短縮した3Dシミュレーション環境です。", en: "A 3D simulation environment for validating stage, lighting, and video plans before setup, reducing on-site work to roughly one-third." }, skills: ["unreal_engine", "Blender"], tags: ["Unreal Engine", "Blueprint", "Blender", "Art-Net / DMX", "NDI"] },
   { id: "IRIG2JJY-M5", title: { ja: "IRIG2JJY-M5", en: "IRIG2JJY-M5" }, description: { ja: "IRIG時刻信号を標準電波JJYのタイムコード信号へ変換する、小型のハードウェアです。", en: "A compact hardware project that converts an IRIG time signal into a standard JJY time-code signal." }, skills: ["C++", "circuit_development", "embedded"], tags: ["C++", "ESP32", "Hardware"], href: "https://github.com/Surigoma/IRIG2JJY-M5" },
   { id: "webhook-updater", title: { ja: "webhook-updater", en: "webhook-updater" }, skills: ["Python"], href: "https://github.com/Surigoma/webhook-updater" },
   { id: "raspi-dmxbox", title: { ja: "raspi-DMXBox", en: "raspi-DMXBox" }, skills: ["Python"], href: "https://github.com/Surigoma/raspi-DMXBox" },

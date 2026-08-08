@@ -17,7 +17,7 @@ export type WorkProps = {
   title: string;
   description: string;
   tags: readonly string[];
-  href: string;
+  href?: string;
   featured?: boolean;
 };
 
@@ -42,7 +42,7 @@ export default function Work({ id, title, description, tags, href, featured = fa
       </CardActionArea>
       <CardActions sx={{ px: 2, pb: 2 }}>
         <Button component={RouterLink} to={`/works/${id}`} endIcon={<MdArrowForward />}>{t("works.details")}</Button>
-        <Button href={href} target="_blank" rel="noreferrer" startIcon={<FaGithub />} endIcon={<MdArrowOutward />}>GitHub</Button>
+        {href && <Button href={href} target="_blank" rel="noreferrer" startIcon={<FaGithub />} endIcon={<MdArrowOutward />}>GitHub</Button>}
       </CardActions>
     </Card>
   );
