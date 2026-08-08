@@ -175,7 +175,6 @@ export default function SkillComponent() {
         }
       />
       <CardContent sx={{ padding: 0 }}>
-        <Alert severity="info">{t("messages.adding_now")}</Alert>
         <List>
           {skills
             .filter((s) => skillFilter.includes(s.level.type))
