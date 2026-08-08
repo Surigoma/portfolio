@@ -20,17 +20,15 @@ import {
   MdLanguage,
 } from "react-icons/md";
 import { FaGithub } from "react-icons/fa";
-import { useLocale } from "./i18n/config";
 import { useColorScheme } from "@mui/material/styles";
 
 export default function MainFrame() {
   const { mode, setMode } = useColorScheme();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
-  const locale = useLocale();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const location = useLocation();
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   function langClick(e: React.MouseEvent<HTMLButtonElement>) {
     setAnchorEl(e.currentTarget);
   }
@@ -39,8 +37,8 @@ export default function MainFrame() {
   }
   function changeTheme() {
     const themes = ["system", "dark", "light"];
-    let priv = themes.indexOf(mode ?? "system");
-    let next = (priv + 1) % themes.length;
+    const current = themes.indexOf(mode ?? "system");
+    const next = (current + 1) % themes.length;
     setMode(themes[next] as "system" | "light" | "dark");
   }
   return (
@@ -87,23 +85,25 @@ export default function MainFrame() {
           >
             <MenuItem
               onClick={() => {
-                locale.setLocale("ja");
+                void i18n.changeLanguage("ja");
+                langClose();
               }}
-              selected={locale.locale == "ja"}
+              selected={i18n.resolvedLanguage == "ja"}
             >
               {t("translation.jpn")}
             </MenuItem>
             <MenuItem
               onClick={() => {
-                locale.setLocale("en");
+                void i18n.changeLanguage("en");
+                langClose();
               }}
-              selected={locale.locale == "en"}
+              selected={i18n.resolvedLanguage?.startsWith("en")}
             >
               {t("translation.eng")}
             </MenuItem>
           </Menu>
           <IconButton
-            aria-label="Change language"
+            aria-label="Change color scheme"
             onClick={() => {
               changeTheme();
             }}
@@ -123,7 +123,7 @@ export default function MainFrame() {
                   label={t(e.title)}
                   value={e.path}
                   onClick={() => {
-                    e.path && navigate(e.path);
+                    if (e.path) navigate(e.path);
                   }}
                   key={e.path}
                 />

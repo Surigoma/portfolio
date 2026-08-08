@@ -10,19 +10,24 @@ import Link from "@mui/material/Link";
 interface BuildMeta {
   update?: DateTime;
   hash?: string;
+  failed?: boolean;
 }
 
 export default function UpdatedComponent() {
   const [meta, setMeta] = useState<BuildMeta>({});
   useEffect(() => {
-    fetch("meta/build.json")
-      .then((r) => r.json())
+    fetch("/meta/build.json")
+      .then((r) => {
+        if (!r.ok) throw new Error(`HTTP ${r.status}`);
+        return r.json();
+      })
       .then((d) => {
         setMeta({
           update: DateTime.fromJSDate(new Date(d.update)),
           hash: d.hash,
         });
-      });
+      })
+      .catch(() => setMeta({ failed: true }));
   }, []);
   const { t } = useTranslation();
   function tt(s: string) {
@@ -49,7 +54,9 @@ export default function UpdatedComponent() {
                   locale: i18n.language,
                 }
               )
-            : "Loading..."}
+            : meta.failed
+              ? "Unavailable"
+              : "Loading..."}
         </Typography>
         <Typography
           gutterBottom
@@ -66,7 +73,7 @@ export default function UpdatedComponent() {
               commit/{meta.hash.substring(0, 7)}
             </Link>
           ) : (
-            "Loading..."
+            meta.failed ? "Unavailable" : "Loading..."
           )}
         </Typography>
       </CardContent>

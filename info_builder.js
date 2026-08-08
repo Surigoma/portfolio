@@ -1,4 +1,4 @@
-import fs from "fs";
+import fs from "node:fs/promises";
 import { execSync } from "child_process";
 const git_cmd = "git log -n 1 --format=%H,%cd";
 
@@ -25,23 +25,10 @@ const build_info = {
   update: git_info[1],
 };
 
-console.log("Create Dir...");
-fs.mkdir("public/meta/", { recursive: true }, (e) => {
-  if (e) {
-    throw e;
-  }
-});
-console.log("Create sitemap.xml");
-fs.writeFile("public/meta/sitemap.xml", sitemap, (e) => {
-  if (e) {
-    throw e;
-  }
-});
-console.log("Create build.json");
-fs.writeFile("public/meta/build.json", JSON.stringify(build_info), (e) => {
-  if (e) {
-    throw e;
-  }
-});
+await fs.mkdir("public/meta/", { recursive: true });
+await Promise.all([
+  fs.writeFile("public/meta/sitemap.xml", sitemap),
+  fs.writeFile("public/meta/build.json", JSON.stringify(build_info)),
+]);
 
-console.log("Complite.");
+console.log("Complete.");

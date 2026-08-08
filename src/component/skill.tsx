@@ -17,7 +17,7 @@ import List from "@mui/material/List";
 import Drawer from "@mui/material/Drawer";
 import Stack from "@mui/material/Stack";
 import { useTranslation } from "react-i18next";
-import { useState, type Dispatch, type SetStateAction } from "react";
+import { useEffect, useState, type Dispatch, type SetStateAction } from "react";
 import { MdMenu } from "react-icons/md";
 import SkillListComponent from "./skill_list";
 import skillmap from "./skill_map";
@@ -135,9 +135,9 @@ export default function SkillComponent() {
   const [tagFilter, setTagFilter] = useState<string[]>([...targetTags]);
   const { t } = useTranslation();
   const minWidth = useMediaQuery((t) => t.breakpoints.up("sm"));
-  if (minWidth && drawer) {
-    setDrawer(false);
-  }
+  useEffect(() => {
+    if (minWidth) setDrawer(false);
+  }, [minWidth]);
   return (
     <Card variant="outlined" className="skill_card">
       <CardHeader
@@ -178,7 +178,7 @@ export default function SkillComponent() {
       </CardContent>
       <Drawer
         open={drawer}
-        aria-hidden={!!!drawer}
+        aria-hidden={!drawer}
         onClose={() => setDrawer(false)}
         anchor="bottom"
       >

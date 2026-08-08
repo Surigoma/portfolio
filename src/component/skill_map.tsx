@@ -225,4 +225,6 @@ const skillmap: SkillBase[] = [
   },
 ];
 
+// This module stores JSX icons as display data, not React components.
+// eslint-disable-next-line react-refresh/only-export-components
 export default skillmap;
