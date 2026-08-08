@@ -23,6 +23,8 @@ import { skillText, works, type Language, type SkillData } from "../data/portfol
 import { skillIcons } from "../data/skill-icons";
 import { Link as RouterLink } from "react-router";
 
+const currentYear = new Date().getFullYear();
+
 export default function SkillListComponent({
   skill,
   selected,
@@ -41,7 +43,7 @@ export default function SkillListComponent({
   const text = skillText[language];
   const examples = works.filter((work) => work.skills.includes(skill.id));
   const beforeYear = skill.level.beforeYear
-    ? new Date(Date.now()).getFullYear() - skill.level.beforeYear!
+    ? currentYear - skill.level.beforeYear
     : skill.level.length;
   const skill_level_length = `${text.level} : ${text.levels[skill.level.type]}${
     beforeYear && skill.level.prefix
@@ -74,7 +76,7 @@ export default function SkillListComponent({
         <DialogTitle id={"skill_" + skill.id + "_title"}>
           <Stack spacing={1}>
             {skill.title[language]}
-            <Grid container flexDirection="row" spacing={1}>
+            <Grid container direction="row" spacing={1}>
               <Typography>{text.tag + " :"}</Typography>
               {skill.tags.map((v) => (
                 <Chip
@@ -114,7 +116,7 @@ export default function SkillListComponent({
           </Typography>
           <DialogContentText component="div">
             {skill.description[language].map((paragraph) => (
-              <Typography paragraph key={paragraph}>{paragraph}</Typography>
+              <Typography component="p" sx={{ mb: 2 }} key={paragraph}>{paragraph}</Typography>
             ))}
           </DialogContentText>
           {examples.length > 0 && (
@@ -127,7 +129,7 @@ export default function SkillListComponent({
               <ul>
                 {examples.map((work) => (
                   <li key={work.id}>
-                    <Stack direction="row" spacing={1} alignItems="center" flexWrap="wrap">
+                    <Stack direction="row" spacing={1} sx={{ alignItems: "center", flexWrap: "wrap" }}>
                       <Typography component="span">{work.title[language]}</Typography>
                       {work.description && (
                         <Link

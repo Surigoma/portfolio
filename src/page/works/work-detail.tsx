@@ -28,7 +28,7 @@ export default function WorkDetail() {
     <Box component="article" sx={{ my: 3, maxWidth: 820, mx: "auto" }}>
       <Button component={RouterLink} to="/works" startIcon={<MdArrowBack />} sx={{ mb: 2 }}>{t("works.back")}</Button>
       <Typography variant="h3" component="h1" gutterBottom>{work.title[language]}</Typography>
-      <Stack direction="row" gap={1} flexWrap="wrap" mb={3}>{work.tags!.map((tag) => <Chip key={tag} label={tag} size="small" />)}</Stack>
+      <Stack direction="row" sx={{ gap: 1, flexWrap: "wrap", mb: 3 }}>{work.tags!.map((tag) => <Chip key={tag} label={tag} size="small" />)}</Stack>
       <Box sx={{ "& h2": { mt: 4, mb: 1 }, "& p": { lineHeight: 1.8 }, "& li": { mb: 0.5 }, "& img": { maxWidth: "100%", borderRadius: 2 } }}><ReactMarkdown>{article}</ReactMarkdown></Box>
       {work.href && (
         <Button href={work.href} target="_blank" rel="noreferrer" variant="contained" startIcon={<FaGithub />} endIcon={<MdArrowOutward />} sx={{ mt: 3 }}>

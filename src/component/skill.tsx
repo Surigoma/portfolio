@@ -8,6 +8,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Checkbox from "@mui/material/Checkbox";
 import ListItemText from "@mui/material/ListItemText";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import IconButton from "@mui/material/IconButton";
@@ -144,10 +145,16 @@ export default function SkillComponent() {
   const [tagFilter, setTagFilter] = useState<SkillTag[]>([...targetTags]);
   const { i18n } = useTranslation();
   const language: Language = i18n.resolvedLanguage?.startsWith("en") ? "en" : "ja";
-  const minWidth = useMediaQuery((t) => t.breakpoints.up("sm"));
+  const minWidthQuery = useTheme().breakpoints.up("sm");
+  const minWidth = useMediaQuery(minWidthQuery);
   useEffect(() => {
-    if (minWidth) setDrawer(false);
-  }, [minWidth]);
+    const mediaQuery = window.matchMedia(minWidthQuery);
+    const closeDrawer = (event: MediaQueryListEvent) => {
+      if (event.matches) setDrawer(false);
+    };
+    mediaQuery.addEventListener("change", closeDrawer);
+    return () => mediaQuery.removeEventListener("change", closeDrawer);
+  }, [minWidthQuery]);
   return (
     <Card variant="outlined" className="skill_card">
       <CardHeader

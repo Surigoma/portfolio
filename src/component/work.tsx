@@ -27,15 +27,15 @@ export default function Work({ id, title, description, tags, href, featured = fa
     <Card variant="outlined" sx={{ display: "flex", flexDirection: "column", height: "100%", borderColor: featured ? "primary.main" : "divider" }}>
       <CardActionArea component={RouterLink} to={`/works/${id}`} sx={{ flexGrow: 1 }}>
         <CardContent>
-          <Stack direction="row" spacing={1.5} alignItems="center" mb={2}>
+          <Stack direction="row" spacing={1.5} sx={{ alignItems: "center", mb: 2 }}>
             <Box sx={{ display: "grid", placeItems: "center", width: 44, height: 44, borderRadius: 2, color: "primary.main", bgcolor: "action.hover", fontSize: 26 }}><MdCode /></Box>
             <Box>
               {featured && <Typography variant="overline" color="primary.main">{t("works.featured")}</Typography>}
               <Typography variant="h5" component="h2">{title}</Typography>
             </Box>
           </Stack>
-          <Typography color="text.secondary" mb={2}>{description}</Typography>
-          <Stack direction="row" gap={1} flexWrap="wrap">
+          <Typography color="text.secondary" sx={{ mb: 2 }}>{description}</Typography>
+          <Stack direction="row" sx={{ gap: 1, flexWrap: "wrap" }}>
             {tags.map((tag) => <Chip key={tag} label={tag} size="small" variant="outlined" />)}
           </Stack>
         </CardContent>
