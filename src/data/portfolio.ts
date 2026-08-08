@@ -130,7 +130,7 @@ export const works: WorkData[] = [
   { id: "ledDisplay", title: { ja: "ledDisplay", en: "ledDisplay" }, skills: ["Python"], href: "https://github.com/Surigoma/ledDisplay" },
   { id: "work_linux_enbedded", title: { ja: "組み込みLinux開発", en: "Embedded Linux Development" }, skills: ["Linux", "C", "C++", "embedded"] },
   { id: "hobby_linux", title: { ja: "自宅サーバー構築", en: "Building a home server" }, skills: ["Linux"] },
-  { id: "electronic_bulletin_borad", title: { ja: "電光掲示板", en: "Electronic bulletin board" }, skills: ["C#", "circuit_development"], href: "https://github.com/Surigoma/Electronicboard" },
+  { id: "electronic_bulletin_borad", title: { ja: "自作電光掲示板システム", en: "Custom LED Matrix Display System" }, description: { ja: "LEDパネル、制御基板、AVRファームウェア、Windowsアプリまで設計・開発した電光掲示板システムです。", en: "An LED display system spanning custom panels, controller boards, AVR firmware, and a Windows control application." }, skills: ["C", "C#", "circuit_development", "embedded"], tags: ["ATmega32", "AVR / C", "Eagle", "C#", "UART"], href: "https://github.com/Surigoma/Electronicboard" },
   { id: "twitry", title: { ja: "Twitry（旧Twitterクライアント用ライブラリ）", en: "Twitry (Library for the former Twitter client)" }, skills: ["C#"], href: "https://github.com/Surigoma/Twitry" },
 ];
 export const listedWorks = works.filter((work) => work.description && work.tags);
