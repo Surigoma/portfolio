@@ -4,9 +4,17 @@ Sujicraft is a personal skill collection for AI coding agents, covering design, 
 
 ## Motivation
 
-AI-generated code can work while leaving responsibilities and the scope of a change difficult to understand. I made my engineering criteria explicit: preserve existing assumptions, explain the reasons and effects of changes, and choose changes justified by the requirements.
+While using Ponytail with AI coding agents, I struggled with a tendency to place files at the same directory level and produce code that was difficult for a person to read. Control flow was hard to follow, responsibility boundaries were unclear, and the effects of a change were difficult to assess. This made the generated code burdensome to maintain.
 
-The collection also defines priorities when valid options or rules conflict, rather than relying on a list of prohibitions alone.
+I asked the AI to correct these issues each time, but the instructions often did not carry over to a new session. I kept repeating the same explanations. Sujicraft grew from the need to preserve and share my criteria for file organization, readability, responsibility boundaries, and change scope across sessions.
+
+I adopted ideas such as decision priorities from Ponytail because I valued its approach. I then developed Sujicraft as a personal collection that I could refine to fit my own development work. The effort of proposing my changes to Ponytail through pull requests and explaining their intent was also a reason to maintain a separate collection.
+
+## Intended Division of Work
+
+I want to think about what comes next and have AI carry out the implementation. People ultimately use the results, so I want to retain the work of understanding users, considering usage scenarios, and deciding what to build. Sharing my recurring implementation criteria with AI is intended to reduce repeated explanations and the maintenance burden of generated code, leaving more room for that work.
+
+I chose Codex, Claude Code, and Grok Build both to carry the same criteria across environments and to make the collection usable with widely used tools.
 
 ## Design Decisions
 
@@ -25,7 +33,7 @@ UI and document tasks have their own review criteria. Code-specific principles f
 
 The project implements Codex distribution settings and ZIP generation, with installation instructions for Claude Code and Grok Build. Validation checks references and bundled files, and records successful CLI plugin validation for Claude Code and Grok Build.
 
-These checks are distinguished from validation of skill selection and decisions in interactive sessions. Verified coverage and untested areas are documented in the repository. The project remains under active development, with criteria refined through conversations and concrete examples.
+These checks are distinguished from validation of skill selection and decisions in interactive sessions. Verified coverage and untested areas are documented in the repository. I am still trying the collection in practice. Early impressions are positive, but its effectiveness remains to be evaluated. The criteria continue to evolve through conversations and concrete examples.
 
 ## Technologies and Formats
 
