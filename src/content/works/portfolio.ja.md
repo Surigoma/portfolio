@@ -45,7 +45,7 @@
 
 デプロイでは、`v*`形式のGitタグを起点にGitHub Actionsを実行します。依存関係のインストール、ビルド情報とサイトマップの生成、TypeScriptとViteによる本番ビルド、成果物のアーカイブ、GitHub Releaseの作成までを自動化しています。
 
-GitHub側の更新はWebhookを通じてVPSへ通知され、公開データへ自動的に反映されます。配信にはCloudflareの証明書とCDNを利用し、GitHub、既存VPS、Cloudflareを組み合わせることで追加コストを抑えています。
+GitHub側の更新はWebhookを通じてVPSへ通知され、自作の[webhook-updater](/works/webhook-updater)でリリース成果物を取得・展開し、公開データへ自動的に反映します。配信にはCloudflareの証明書とCDNを利用し、GitHub、既存VPS、Cloudflareを組み合わせることで追加コストを抑えています。
 
 ## デザイン方針
 

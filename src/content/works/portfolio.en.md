@@ -45,7 +45,7 @@ Project titles, summaries, URLs, and skill relationships are managed in one Type
 
 Deployment starts when a Git tag matching `v*` is pushed. GitHub Actions installs locked dependencies, generates build metadata and the sitemap, creates the production build with TypeScript and Vite, archives the output, and publishes it as a GitHub Release.
 
-GitHub updates are sent to the VPS through a webhook-based deployment flow and applied to the published site automatically. Cloudflare provides certificates and CDN delivery. Combining GitHub, an existing VPS, and Cloudflare keeps the additional operating cost low.
+GitHub updates are sent to the VPS through webhooks. My [webhook-updater](/works/webhook-updater) service downloads and extracts release assets to update the published site automatically. Cloudflare provides certificates and CDN delivery. Combining GitHub, an existing VPS, and Cloudflare keeps the additional operating cost low.
 
 ## Design Principles
 
