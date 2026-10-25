@@ -63,3 +63,8 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           RELEASE_TAG: ${{ needs.release_please.outputs.tag_name }}
         run: gh release upload "$RELEASE_TAG" release.tar.gz --clobber --repo "$GITHUB_REPOSITORY"
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ needs.release_please.outputs.tag_name }}
+        run: gh release edit "$RELEASE_TAG" --draft=false --repo "$GITHUB_REPOSITORY"
