@@ -10,7 +10,7 @@ This portfolio site also uses the service to apply GitHub updates to its VPS. Co
 - HMAC-SHA256 webhook signature verification
 - Conditions based on repository name, event type, and action
 - Repository updates using `git pull --ff-only`
-- Downloading a named release asset and extracting tar.gz archives
+- Downloading a named release asset and extracting tar.gz archives, briefly retrying when the asset is not yet available
 - YAML configuration for multiple update targets and deployment paths
 - Webhook-triggered self-updates and restarts
 
