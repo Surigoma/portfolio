@@ -2,6 +2,14 @@
 
 Release Please maintains new entries from Conventional Commits.
 
+## [0.4.2](https://github.com/Surigoma/portfolio/compare/v0.4.1...v0.4.2) (2026-11-03)
+
+
+### Bug Fixes
+
+* **deps:** pin minimatch 11.0.4 (GHSA-g3hv-75wg-m249) ([2735904](https://github.com/Surigoma/portfolio/commit/2735904e09fecd636d1d65a4c6834fddace972bc))
+* **deps:** pin minimatch 11.0.4 for GHSA-g3hv-75wg-m249 ([daa6692](https://github.com/Surigoma/portfolio/commit/daa669267f2b61af42cd430f923c70833e618a2b))
+
 ## [0.4.1](https://github.com/Surigoma/portfolio/compare/v0.4.0...v0.4.1) (2026-10-25)
 
 
